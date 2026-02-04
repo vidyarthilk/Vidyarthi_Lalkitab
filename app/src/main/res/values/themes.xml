@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- ================================================= -->
+    <!-- APP THEME -->
+    <!-- ================================================= -->
+    <style name="Theme.Vidyarthi_Lalkitab"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- ORANGE everywhere -->
+        <item name="colorPrimary">@color/orange_main</item>
+        <item name="colorSecondary">@color/orange_main</item>
+        <item name="colorTertiary">@color/orange_main</item>
+
+        <!-- BACKGROUND -->
+        <item name="android:windowBackground">@color/white_bg</item>
+
+        <!-- BLOOD RED TEXT -->
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textColorPrimary">@color/blood_red</item>
+        <item name="android:textColorSecondary">@color/blood_red</item>
+
+        <!-- REMOVE ROUNDED LOOK (GLOBAL) -->
+        <item name="shapeAppearanceSmallComponent">@style/Shape.Square</item>
+        <item name="shapeAppearanceMediumComponent">@style/Shape.Square</item>
+        <item name="shapeAppearanceLargeComponent">@style/Shape.Square</item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Name -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="નામ"
+            android:textSize="16sp"
+            android:fontFamily="@font/kalam_bold"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="નામ દાખલ કરો"
+            android:fontFamily="@font/kalam_regular"/>
+
+        <!-- Date -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="જન્મ તારીખ"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/kalam_bold"/>
+
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="તારીખ પસંદ કરો"
+            android:focusable="false"
+            android:fontFamily="@font/kalam_regular"/>
+
+        <!-- Time -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="જન્મ સમય"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/kalam_bold"/>
+
+        <EditText
+            android:id="@+id/etTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="સમય પસંદ કરો"
+            android:focusable="false"
+            android:fontFamily="@font/kalam_regular"/>
+
+        <!-- City -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="જન્મ સ્થળ"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/kalam_bold"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/actCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="શહેર પસંદ કરો"
+            android:fontFamily="@font/kalam_regular"/>
+
+        <!-- Gender -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="લિંગ"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/kalam_bold"/>
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="પુરુષ"
+                android:fontFamily="@font/kalam_regular"/>
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="સ્ત્રી"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/kalam_regular"/>
+        </RadioGroup>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Kundli"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/kalam_bold"/>
+
+    </LinearLayout>
+</ScrollView>

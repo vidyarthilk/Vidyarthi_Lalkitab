@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/om"
+    android:padding="12dp">
+
+    <!-- Heading -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="વિદ્યાર્થી_લાલકિતાબ"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:fontFamily="@font/kalam_bold"
+        android:textColor="#000000"
+        android:padding="12dp"/>
+
+    <!-- Tab Layout -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorFullWidth="true"
+        app:tabSelectedTextColor="#000000"
+        app:tabTextColor="#555555"
+        app:tabIndicatorColor="#000000"
+        app:tabTextAppearance="@style/TabTextStyle"/>
+
+    <!-- ViewPager -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

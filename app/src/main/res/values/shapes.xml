@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- NO rounded corners -->
+    <dimen name="corner_none">0dp</dimen>
+
+</resources>

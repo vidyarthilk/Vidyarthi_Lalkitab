@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/om"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:text="કુંડળી"
+        android:textSize="26sp"
+        android:fontFamily="@font/kalam_bold"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Lagna Text -->
+    <TextView
+        android:id="@+id/tvLagna"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Kundli Chart -->
+    <com.example.vidyarthi_lalkitab.ui.kundli.KundliChartView
+        android:id="@+id/kundliChartView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Graha Details -->
+    <TextView
+        android:id="@+id/tvGraha"
+        android:textSize="14sp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

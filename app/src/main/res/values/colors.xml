@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ORANGE for boxes, buttons -->
+    <color name="orange_main">#FF9800</color>
+
+    <!-- BLOOD RED for ALL text -->
+    <color name="blood_red">#8B0000</color>
+
+    <!-- Background -->
+    <color name="white_bg">#FFFFFF</color>
+
+</resources>
