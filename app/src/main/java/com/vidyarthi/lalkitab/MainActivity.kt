@@ -247,6 +247,7 @@ class MainActivity : BaseActivity(), MainKundliNavigator {
                 PdfShareHelper.sharePdf(this@MainActivity, file)
             }
         }
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
