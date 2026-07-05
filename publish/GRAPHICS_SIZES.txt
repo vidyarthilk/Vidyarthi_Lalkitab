@@ -1,0 +1,20 @@
+=== PLAY STORE GRAPHICS ===
+
+Required:
+- App icon: 512 x 512 px, PNG, 32-bit
+- Feature graphic: 1024 x 500 px, PNG or JPG
+- Phone screenshots: min 2, max 8
+  - Short side min 320px, long side max 3840px
+  - 16:9 or 9:16 typical (phone portrait OK)
+
+Suggested screenshots (take from real app):
+1. New Kundli input screen
+2. Saved kundli list
+3. Panchang tab
+4. Janma kundli chart
+5. Varshfal or Lal Kitab tab
+
+Save to folder: publish/screenshots/
+
+Optional:
+- 7-inch / 10-inch tablet screenshots (not required if phone-only)

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="panchang_tithi">
+        <item>Pratipada</item><item>Dwitiya</item><item>Tritiya</item><item>Chaturthi</item><item>Panchami</item>
+        <item>Shashthi</item><item>Saptami</item><item>Ashtami</item><item>Navami</item><item>Dashami</item>
+        <item>Ekadashi</item><item>Dwadashi</item><item>Trayodashi</item><item>Chaturdashi</item><item>Purnima</item>
+        <item>Pratipada</item><item>Dwitiya</item><item>Tritiya</item><item>Chaturthi</item><item>Panchami</item>
+        <item>Shashthi</item><item>Saptami</item><item>Ashtami</item><item>Navami</item><item>Dashami</item>
+        <item>Ekadashi</item><item>Dwadashi</item><item>Trayodashi</item><item>Chaturdashi</item><item>Amavasya</item>
+    </string-array>
+    <string-array name="panchang_nakshatra">
+        <item>Ashwini</item><item>Bharani</item><item>Krittika</item><item>Rohini</item><item>Mrigashira</item>
+        <item>Ardra</item><item>Punarvasu</item><item>Pushya</item><item>Ashlesha</item><item>Magha</item>
+        <item>Purva Phalguni</item><item>Uttara Phalguni</item><item>Hasta</item><item>Chitra</item><item>Swati</item>
+        <item>Vishakha</item><item>Anuradha</item><item>Jyeshtha</item><item>Mula</item><item>Purva Ashadha</item>
+        <item>Uttara Ashadha</item><item>Shravana</item><item>Dhanishta</item><item>Shatabhisha</item>
+        <item>Purva Bhadrapada</item><item>Uttara Bhadrapada</item><item>Revati</item>
+    </string-array>
+    <string-array name="panchang_yoga">
+        <item>Vishkambha</item><item>Priti</item><item>Ayushman</item><item>Saubhagya</item><item>Shobhana</item>
+        <item>Atiganda</item><item>Sukarman</item><item>Dhriti</item><item>Shula</item><item>Ganda</item>
+        <item>Vriddhi</item><item>Dhruva</item><item>Vyaghata</item><item>Harshana</item><item>Vajra</item>
+        <item>Siddhi</item><item>Vyatipata</item><item>Variyan</item><item>Parigha</item><item>Shiva</item>
+        <item>Siddha</item><item>Sadhya</item><item>Shubha</item><item>Shukla</item><item>Brahma</item>
+        <item>Indra</item><item>Vaidhriti</item>
+    </string-array>
+    <!-- Order matches engine karana index 0–10 (same repeating pattern as original table). -->
+    <string-array name="panchang_karana">
+        <item>Bava</item><item>Balava</item><item>Kaulava</item><item>Taitila</item><item>Garaja</item><item>Vanija</item>
+        <item>Vishti</item><item>Bava</item><item>Balava</item><item>Kaulava</item><item>Taitila</item>
+    </string-array>
+    <string-array name="panchang_maas">
+        <item>Chaitra</item><item>Vaisakha</item><item>Jyeshtha</item><item>Ashadha</item>
+        <item>Shravana</item><item>Bhadrapada</item><item>Ashvina</item><item>Kartika</item>
+        <item>Margashirsha</item><item>Pausha</item><item>Magha</item><item>Phalguna</item>
+    </string-array>
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+
+        android:id="@+id/toolbar"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="?attr/actionBarSize"
+
+        android:background="@android:color/transparent"
+
+        app:navigationIcon="?attr/homeAsUpIndicator"
+
+        app:title="@string/lalkitab_dasha_screen_title"
+
+        app:titleTextColor="@color/blood_red" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kalam_bold"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="8dp"
+        android:text="@string/lalkitab_dasha_subtitle_mahadasha"
+        android:textColor="@color/blood_red"
+        android:textSize="16sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/rvDasha"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="0dp"
+
+        android:layout_weight="1"
+
+        android:clipToPadding="false"
+
+        android:paddingBottom="16dp" />
+
+</LinearLayout>
+
+

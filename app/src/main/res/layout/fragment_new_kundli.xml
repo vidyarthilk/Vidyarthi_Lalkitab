@@ -1,119 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/newKundliScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="false"
+        android:overScrollMode="ifContentScrolls">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/spacing_screen_horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="@dimen/spacing_screen_vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/etName"
+                android:text="@string/label_name"
+                android:textAppearance="@style/TextAppearance.Vidyarthi.FormFieldLabel" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <EditText
+                    android:id="@+id/etName"
+                    style="@style/Widget.Vidyarthi.FormBoxField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_name"
+                    android:inputType="textPersonName" />
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="14dp"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_form_person" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_field"
+                android:labelFor="@id/etDate"
+                android:text="@string/label_birth_date"
+                android:textAppearance="@style/TextAppearance.Vidyarthi.FormFieldLabel" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <EditText
+                    android:id="@+id/etDate"
+                    style="@style/Widget.Vidyarthi.FormBoxField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/hint_birth_date"
+                    android:inputType="number"
+                    android:maxLength="10" />
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="14dp"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_form_calendar" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_field"
+                android:labelFor="@id/etTime"
+                android:text="@string/label_birth_time"
+                android:textAppearance="@style/TextAppearance.Vidyarthi.FormFieldLabel" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <EditText
+                    android:id="@+id/etTime"
+                    style="@style/Widget.Vidyarthi.FormBoxField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="@string/hint_birth_time" />
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="14dp"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_form_clock" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_field"
+                android:labelFor="@id/actCity"
+                android:text="@string/label_birth_place"
+                android:textAppearance="@style/TextAppearance.Vidyarthi.FormFieldLabel" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/actCity"
+                    style="@style/Widget.Vidyarthi.FormBoxField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:completionThreshold="2"
+                    android:dropDownHeight="240dp"
+                    android:hint="@string/hint_city"
+                    android:importantForAutofill="no"
+                    android:inputType="textNoSuggestions|textCapWords"
+                    android:privateImeOptions="disableSpellcheck" />
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="14dp"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_form_location" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/label_gender"
+                android:textAppearance="@style/TextAppearance.Vidyarthi.FormFieldLabel" />
+
+            <RadioGroup
+                android:id="@+id/rgGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_gender_segment_container"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    style="@style/Widget.Vidyarthi.GenderSegment"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_gender_segment"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/gender_male" />
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    style="@style/Widget.Vidyarthi.GenderSegment"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_gender_segment"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/gender_female" />
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                style="@style/Widget.Vidyarthi.SaveKundliButtonPremium"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/spacing_section"
+                android:elevation="4dp"
+                android:text="@string/btn_save_kundli"
+                app:icon="@drawable/ic_form_save"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"
+                app:iconTint="@color/deep_maroon" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        layout="@layout/layout_ad_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="4dp" />
 
-        <!-- Name -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="નામ"
-            android:textSize="16sp"
-            android:fontFamily="@font/kalam_bold"/>
-
-        <EditText
-            android:id="@+id/etName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="નામ દાખલ કરો"
-            android:fontFamily="@font/kalam_regular"/>
-
-        <!-- Date -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="જન્મ તારીખ"
-            android:textSize="16sp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/kalam_bold"/>
-
-        <EditText
-            android:id="@+id/etDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="તારીખ પસંદ કરો"
-            android:focusable="false"
-            android:fontFamily="@font/kalam_regular"/>
-
-        <!-- Time -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="જન્મ સમય"
-            android:textSize="16sp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/kalam_bold"/>
-
-        <EditText
-            android:id="@+id/etTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="સમય પસંદ કરો"
-            android:focusable="false"
-            android:fontFamily="@font/kalam_regular"/>
-
-        <!-- City -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="જન્મ સ્થળ"
-            android:textSize="16sp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/kalam_bold"/>
-
-        <AutoCompleteTextView
-            android:id="@+id/actCity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="શહેર પસંદ કરો"
-            android:fontFamily="@font/kalam_regular"/>
-
-        <!-- Gender -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="લિંગ"
-            android:textSize="16sp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/kalam_bold"/>
-
-        <RadioGroup
-            android:id="@+id/rgGender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rbMale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="પુરુષ"
-                android:fontFamily="@font/kalam_regular"/>
-
-            <RadioButton
-                android:id="@+id/rbFemale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="સ્ત્રી"
-                android:layout_marginStart="16dp"
-                android:fontFamily="@font/kalam_regular"/>
-        </RadioGroup>
-
-        <!-- Save Button -->
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save Kundli"
-            android:textSize="18sp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/kalam_bold"/>
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

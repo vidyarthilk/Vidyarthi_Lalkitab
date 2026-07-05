@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="kundli_chart_min_size">340dp</dimen>
+    <dimen name="kundli_chart_height">@dimen/kundli_chart_min_size</dimen>
+    <dimen name="kundli_chart_height_dual">@dimen/kundli_chart_min_size</dimen>
+    <dimen name="kundli_chart_compact_size">@dimen/kundli_chart_min_size</dimen>
+</resources>

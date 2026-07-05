@@ -1,0 +1,22 @@
+=== Point B — Phone screenshots (20 મિનિટ) ===
+
+1. Phone પર app install કરો (debug અથવા release build)
+2. નીચેની 4–6 screens ખોલી screenshot લો (Power + Volume Down)
+
+જરૂરી screenshots:
+  [ ] 1-new-kundli.png     — નવી કુંડલી form (થોડું data ભરેલું સારું લાગે)
+  [ ] 2-saved-list.png     — સહેજેલી યાદી (ઉપર X/50 દેખાય તો સારું)
+  [ ] 3-panchang.png       — પંચાંગ tab
+  [ ] 4-kundli-chart.png   — જન્મ કુંડલી / chart screen
+  [ ] 5-settings.png       — (optional) Settings + subscription section
+  [ ] 6-varshfal.png       — (optional) વર્ષફલ અથવા બીજી tab
+
+3. ફાઇલો અહીં મૂકો:
+    D:\astro_data\Vidyarthi_Lalkitab\publish\screenshots\
+
+4. Play Store graphics (કમ્પ્યુટર પર):
+  [ ] app-icon-512.png      — 512 x 512 px
+  [ ] feature-1024x500.png  — 1024 x 500 px
+  Canva.com પર "Google Play feature graphic" template વાપરી શકાય.
+
+Sizes: publish/GRAPHICS_SIZES.txt

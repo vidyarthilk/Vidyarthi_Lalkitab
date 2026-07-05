@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="spacing_screen_horizontal">16dp</dimen>
+    <dimen name="spacing_screen_vertical">16dp</dimen>
+    <dimen name="spacing_section">20dp</dimen>
+    <dimen name="spacing_field">16dp</dimen>
+    <dimen name="varshfal_selector_card_padding">6dp</dimen>
+    <dimen name="varshfal_selector_item_gap">4dp</dimen>
+    <dimen name="varshfal_chart_section_gap">10dp</dimen>
+
+    <dimen name="card_radius">20dp</dimen>
+    <dimen name="field_radius">22dp</dimen>
+    <dimen name="button_radius">28dp</dimen>
+    <dimen name="bottom_nav_radius">24dp</dimen>
+
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="bottom_nav_elevation">14dp</dimen>
+
+    <dimen name="spinner_dropdown_row_height">40dp</dimen>
+    <dimen name="year_spinner_dropdown_height">200dp</dimen>
+    <dimen name="spinner_dropdown_compact_height">@dimen/year_spinner_dropdown_height</dimen>
+
+    <dimen name="kundli_chart_min_size">300dp</dimen>
+    <dimen name="kundli_chart_height">@dimen/kundli_chart_min_size</dimen>
+    <dimen name="kundli_chart_height_dual">@dimen/kundli_chart_min_size</dimen>
+    <!-- Full chart height — janma/chandra, varshfal year/month/day/hour -->
+    <dimen name="kundli_chart_compact_size">@dimen/kundli_chart_min_size</dimen>
+    <dimen name="kundli_chart_compact_card_padding">6dp</dimen>
+
+    <dimen name="triad_card_min_height">168dp</dimen>
+    <dimen name="header_logo_size">36dp</dimen>
+
+    <!-- Budh svabhav card — slightly larger bold text -->
+    <dimen name="budh_svabhav_text_size">14sp</dimen>
+    <dimen name="budh_svabhav_style_padding_top">8dp</dimen>
+    <dimen name="budh_svabhav_card_content_padding">14dp</dimen>
+    <dimen name="budh_svabhav_inner_padding_h">12dp</dimen>
+    <dimen name="budh_svabhav_inner_padding_v">10dp</dimen>
+    <dimen name="budh_svabhav_card_margin_top">8dp</dimen>
+    <dimen name="budh_svabhav_card_margin_bottom">12dp</dimen>
+
+    <!-- Janma / Chandra tab cards — ~50% compact vs single shared tab row -->
+    <dimen name="kundli_module_tab_row_margin_top">3dp</dimen>
+    <dimen name="kundli_module_tab_row_padding_v">2dp</dimen>
+    <dimen name="kundli_module_tab_gap">4dp</dimen>
+    <dimen name="kundli_module_tab_gap_half">2dp</dimen>
+    <dimen name="kundli_module_tab_card_padding">4dp</dimen>
+    <dimen name="kundli_module_tab_corner_radius">12dp</dimen>
+    <dimen name="kundli_module_tab_text_size">18sp</dimen>
+
+</resources>

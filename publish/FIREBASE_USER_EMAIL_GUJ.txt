@@ -1,0 +1,40 @@
+=== Firebase — registered user emails (Firestore) ===
+
+App ma je user Register / Login kare eni email Firebase ma save thay.
+
+❌ Install thay tyare phone nu Gmail AUTO malse NAHI (Google allow nathi).
+✅ User app ma email lakhe tyare j Firestore ma aavse.
+
+--- Firebase Console (ek vaar) ---
+
+1. https://console.firebase.google.com → vidyarthi-lalkitab
+2. Build → Firestore Database → Create database
+3. Mode: Production (recommended)
+4. Location: asia-south1 (Mumbai) ke nearest
+5. Rules tab — paste:
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /registered_users/{userId} {
+      allow read: if false;
+      allow create, update: if request.resource.data.email is string
+        && request.resource.data.email.matches('.*@.*[.].*');
+    }
+  }
+}
+
+6. Publish rules
+
+--- Emails jova ---
+
+Firebase Console → Firestore → registered_users collection
+Fields: email, registeredAt, lastSeenAt, appVersion, deviceModel
+
+--- Guest users (login vagar) ---
+
+Email collect nathi thati — Play Store / Firebase install list ma pan email nathi.
+
+--- Privacy ---
+
+Data safety ma "Email" collected for account management — already declared.

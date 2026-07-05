@@ -1,0 +1,44 @@
+=== AdMob Interstitial Ad Unit — 2 minute setup ===
+
+Haju interstitial ID = banner ID (same) — alag unit banavvu pade.
+
+--- AdMob ma (tame karo) ---
+
+1. https://admob.google.com → Login (vidyarthilalkitab@gmail.com)
+
+2. Left menu → **Apps**
+
+3. **Vidyarthi Lalkitab** par click
+
+4. **Ad units** tab
+
+5. **Add ad unit** (blue button)
+
+6. Select: **Interstitial**
+
+7. Ad unit name: **Kundli Interstitial** (ke koi pan name)
+
+8. **Create ad unit**
+
+9. Screen par **Ad unit ID** dekhashe — copy karo
+   Format: ca-app-pub-8872485581981269/XXXXXXXX
+   (pachhalo number banner thi ALag hovo joie)
+
+10. **Done**
+
+--- PC par (ID mukya pachhi) ---
+
+PowerShell:
+cd D:\astro_data\Vidyarthi_Lalkitab
+.\scripts\set-interstitial-id.ps1 -InterstitialId "ca-app-pub-8872485581981269/NEW_ID_HERE"
+
+Pachhi build:
+.\gradlew.bat bundleRelease
+
+--- Verify ---
+
+Build vakhte warning na ave:
+"ADMOB_INTERSTITIAL_ID equals ADMOB_BANNER_ID"
+
+Current banner ID (change na karo):
+ca-app-pub-8872485581981269/1831125441

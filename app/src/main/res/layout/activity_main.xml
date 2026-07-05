@@ -1,41 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/om"
-    android:padding="12dp">
+    android:orientation="vertical">
 
-    <!-- Heading -->
-    <TextView
-        android:id="@+id/tvTitle"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="વિદ્યાર્થી_લાલકિતાબ"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:fontFamily="@font/kalam_bold"
-        android:textColor="#000000"
-        android:padding="12dp"/>
+        android:minHeight="?attr/actionBarSize"
+        android:paddingHorizontal="@dimen/spacing_screen_horizontal"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
 
-    <!-- Tab Layout -->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabIndicatorFullWidth="true"
-        app:tabSelectedTextColor="#000000"
-        app:tabTextColor="#555555"
-        app:tabIndicatorColor="#000000"
-        app:tabTextAppearance="@style/TabTextStyle"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    <!-- ViewPager -->
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+            <ImageView
+                android:id="@+id/ivAppLogo"
+                android:layout_width="@dimen/header_logo_size"
+                android:layout_height="@dimen/header_logo_size"
+                android:contentDescription="@string/app_title"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/tvAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:text="@string/app_title"
+                android:textAppearance="@style/TextAppearance.Vidyarthi.Heading" />
+        </LinearLayout>
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.Vidyarthi.Toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="end|center_vertical"
+            android:background="@android:color/transparent"
+            app:title="" />
+    </FrameLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainNavHost"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/bg_bottom_nav_bar"
+        android:elevation="@dimen/bottom_nav_elevation"
+        android:paddingTop="6dp"
+        android:paddingBottom="8dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/bottomNavTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:tabBackground="@android:color/transparent"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="fixed"
+            app:tabPaddingEnd="0dp"
+            app:tabPaddingStart="0dp"
+            app:tabRippleColor="#20E8C85C" />
+    </FrameLayout>
 
 </LinearLayout>

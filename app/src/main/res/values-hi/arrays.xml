@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="panchang_tithi">
+        <item>प्रतिपदा</item><item>द्वितीया</item><item>तृतीया</item><item>चतुर्थी</item><item>पंचमी</item>
+        <item>षष्ठी</item><item>सप्तमी</item><item>अष्टमी</item><item>नवमी</item><item>दशमी</item>
+        <item>एकादशी</item><item>द्वादशी</item><item>त्रयोदशी</item><item>चतुर्दशी</item><item>पूर्णिमा</item>
+        <item>प्रतिपदा</item><item>द्वितीया</item><item>तृतीया</item><item>चतुर्थी</item><item>पंचमी</item>
+        <item>षष्ठी</item><item>सप्तमी</item><item>अष्टमी</item><item>नवमी</item><item>दशमी</item>
+        <item>एकादशी</item><item>द्वादशी</item><item>त्रयोदशी</item><item>चतुर्दशी</item><item>अमावस्या</item>
+    </string-array>
+    <string-array name="panchang_nakshatra">
+        <item>अश्विनी</item><item>भरणी</item><item>कृत्तिका</item><item>रोहिणी</item><item>मृगशिरा</item>
+        <item>आर्द्रा</item><item>पुनर्वसु</item><item>पुष्य</item><item>आश्लेषा</item><item>मघा</item>
+        <item>पूर्व फाल्गुनी</item><item>उत्तर फाल्गुनी</item><item>हस्त</item><item>चित्रा</item><item>स्वाती</item>
+        <item>विशाखा</item><item>अनुराधा</item><item>ज्येष्ठा</item><item>मूल</item><item>पूर्वाषाढ़ा</item>
+        <item>उत्तराषाढ़ा</item><item>श्रवण</item><item>धनिष्ठा</item><item>शतभिषा</item>
+        <item>पूर्व भाद्रपद</item><item>उत्तर भाद्रपद</item><item>रेवती</item>
+    </string-array>
+    <string-array name="panchang_yoga">
+        <item>विष्कंभ</item><item>प्रीति</item><item>आयुष्मान</item><item>सौभाग्य</item><item>शोभन</item>
+        <item>अतिगंड</item><item>सुकर्मा</item><item>धृति</item><item>शूल</item><item>गंड</item>
+        <item>वृद्धि</item><item>ध्रुव</item><item>व्याघात</item><item>हर्षण</item><item>वज्र</item>
+        <item>सिद्धि</item><item>व्यतीपात</item><item>वरीयान</item><item>परिघ</item><item>शिव</item>
+        <item>सिद्ध</item><item>साध्य</item><item>शुभ</item><item>शुक्ल</item><item>ब्रह्म</item>
+        <item>इंद्र</item><item>वैधृति</item>
+    </string-array>
+    <string-array name="panchang_karana">
+        <item>बव</item><item>बालव</item><item>कौलव</item><item>तैतिल</item><item>गर</item><item>वणिज</item>
+        <item>विष्टि</item><item>बव</item><item>बालव</item><item>कौलव</item><item>तैतिल</item>
+    </string-array>
+    <string-array name="panchang_maas">
+        <item>चैत्र</item><item>वैशाख</item><item>ज्येष्ठ</item><item>आषाढ़</item>
+        <item>श्रावण</item><item>भाद्रपद</item><item>आश्विन</item><item>कार्तिक</item>
+        <item>मार्गशीर्ष</item><item>पौष</item><item>माघ</item><item>फाल्गुन</item>
+    </string-array>
+</resources>

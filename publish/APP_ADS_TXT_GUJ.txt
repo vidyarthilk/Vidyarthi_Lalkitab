@@ -1,0 +1,36 @@
+=== app-ads.txt — AdMob verify (તમે 5 મિનિટ) ===
+
+આપણે PC પર file તૈયાર કરી: publish\app-ads.txt
+
+--- તમે કરો (ક્રમ) ---
+
+1) GitHub ખોલો
+   https://github.com/vidyarthilk/vidyarthi-lalkitab-privacy
+   (જો repo name અલગ હોય — privacy policy જ repo)
+
+2) Add file → Upload files
+   - publish\app-ads.txt upload કરો (root માં — index.html સાથે)
+   - Commit message: Add app-ads.txt for AdMob
+   - Commit changes
+
+3) Browser માં verify (2–5 મિનિટ પછી):
+   https://vidyarthilk.github.io/vidyarthi-lalkitab-privacy/app-ads.txt
+
+   ખુલે અને આ લાઇન દેખાય:
+   google.com, pub-8872485581981269, DIRECT, f08c47fec0942fa0
+
+4) Play Console — website match
+   Grow users → Store presence → Store settings
+   Website = https://vidyarthilk.github.io/vidyarthi-lalkitab-privacy/
+   (જો ખાલી હોય તો આ URL add કરો → Save)
+
+5) AdMob
+   Apps → Vidyarthi Lalkitab → App settings → app-ads.txt section
+   → "Check for updates" click
+
+6) રાહ: 24–48 કલાક (ક્યારેક 72)
+   Status: Verified / Ready થાય
+
+--- નોંધ ---
+- App Play Store પર live છે — aa fix ads verify માટે જ
+- app-ads.txt માં publisher ID બદલવું નહીં (AdMob Account → pub-8872485581981269)

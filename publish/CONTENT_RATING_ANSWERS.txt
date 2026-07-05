@@ -1,0 +1,15 @@
+=== CONTENT RATING QUESTIONNAIRE ===
+Start questionnaire in Play Console → answer similar to:
+
+Violence → No
+Sexuality → No
+Language → No / Mild (if any)
+Controlled substances → No
+Gambling → No
+User interaction → No (no chat/social)
+Shares location → No
+Unrestricted internet → Yes (ads load from internet)
+
+Category result: usually Everyone or Everyone 10+ / Teen
+
+Astrology / religious content: typically no extra flags; answer truthfully if asked about "occult" — often No or Informational only.

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Widget.Vidyarthi.TextView" parent="@android:style/Widget.TextView">
+        <item name="fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.EditText" parent="@android:style/Widget.EditText">
+        <item name="fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <!-- ================================================= -->
     <!-- REQUIRED BASE SHAPE (Material3 needs this) -->
     <!-- ================================================= -->
@@ -21,15 +33,18 @@
     <style name="TextAppearance.Vidyarthi.Heading"
         parent="TextAppearance.Material3.TitleLarge">
         <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">26sp</item>
-        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textColor">@color/deep_maroon</item>
     </style>
 
     <!-- Section Heading -->
     <style name="TextAppearance.Vidyarthi.SubHeading"
         parent="TextAppearance.Material3.TitleMedium">
         <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/blood_red</item>
@@ -39,6 +54,7 @@
     <style name="TextAppearance.Vidyarthi.Body"
         parent="TextAppearance.Material3.BodyMedium">
         <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/blood_red</item>
     </style>
@@ -47,11 +63,61 @@
     <style name="TextAppearance.Vidyarthi.Small"
         parent="TextAppearance.Material3.BodySmall">
         <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/blood_red</item>
     </style>
-    <style name="TabTextStyle">
+    <style name="TabTextStyle"
+        parent="TextAppearance.Vidyarthi.Body">
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TabTextStyleSwipe" parent="TextAppearance.Vidyarthi.Small">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.KundliTab" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.BudhSvabhav"
+        parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textSize">@dimen/budh_svabhav_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:paddingTop">@dimen/budh_svabhav_style_padding_top</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.BudhSvabhavCard" parent="Widget.Vidyarthi.PremiumCard">
+        <item name="cardBackgroundColor">@color/cream_elevated</item>
+        <item name="contentPadding">@dimen/budh_svabhav_card_content_padding</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.KundliChartCard" parent="Widget.Vidyarthi.PremiumCard">
+        <item name="contentPadding">@dimen/kundli_chart_compact_card_padding</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.KundliModuleTabCard" parent="Widget.Vidyarthi.PremiumCard">
+        <item name="contentPadding">@dimen/kundli_module_tab_card_padding</item>
+        <item name="cardCornerRadius">@dimen/kundli_module_tab_corner_radius</item>
+        <item name="strokeWidth">1.5dp</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.KundliModuleTab"
+        parent="TextAppearance.Vidyarthi.Small">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textSize">@dimen/kundli_module_tab_text_size</item>
         <item name="android:textColor">@color/blood_red</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -62,6 +128,273 @@
         <item name="cornerRadius">0dp</item>
         <item name="backgroundTint">@color/orange_main</item>
         <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.ToolbarTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.Vidyarthi.ToolbarTitle</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.Vidyarthi.Small</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.SectionTitle" parent="TextAppearance.Vidyarthi.SubHeading">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.FormLabel" parent="TextAppearance.Vidyarthi.Body">
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.FormScreenTitle" parent="TextAppearance.Vidyarthi.SubHeading">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.FormScreenSubtitle" parent="TextAppearance.Vidyarthi.Small">
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.FormFieldLabel" parent="TextAppearance.Vidyarthi.FormLabel">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.FormBoxField" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_form_field_box</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">48dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textColorHint">@color/text_muted</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.Accent" parent="TextAppearance.Vidyarthi.Body">
+        <item name="android:textColor">@color/orange_deep</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.Muted" parent="TextAppearance.Vidyarthi.Small">
+        <item name="android:textColor">@color/text_muted</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/cream_white</item>
+        <item name="strokeColor">@color/golden</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.PremiumCard" parent="Widget.Vidyarthi.Card">
+        <item name="cardBackgroundColor">@color/cream_white</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.PrimaryButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/orange_main</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/blood_red</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.EditField" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_edittext</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textColorHint">@color/text_muted</item>
+    </style>
+
+    <!-- New Kundli form — premium outlined fields -->
+    <style name="Widget.Vidyarthi.FormTextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxStrokeColor">@color/form_input_box_stroke</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="hintTextColor">@color/text_muted</item>
+        <item name="startIconTint">@color/orange_main</item>
+        <item name="android:textColorHint">@color/text_muted</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.FormOutlinedField" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textColorHint">@color/text_muted</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.GenderSegment" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/gender_segment_text</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/kalam_bold</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.SaveKundliButtonPremium" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/bg_save_kundli_gradient</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/deep_maroon</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="rippleColor">#40FFFFFF</item>
+        <item name="fontFamily">@font/kalam_bold</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.SectionHeader" parent="TextAppearance.Vidyarthi.SubHeading">
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.03</item>
+    </style>
+
+    <!-- Legacy underline fields (saved screens) -->
+    <style name="Widget.Vidyarthi.FormUnderlineField" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textColorHint">@color/text_muted</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.FormRadio" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+        <item name="buttonTint">@color/orange_main</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.SaveKundliButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/orange_main</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="rippleColor">#40FFFFFF</item>
+        <item name="fontFamily">@font/kalam_bold</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.DialogButton" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="fontFamily">@font/kalam_bold</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.Spinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:fontFamily">@font/kalam_regular</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.ScreenTitle" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.Label" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.CaptionBold" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.DashaMaha" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.DashaMahaCurrent" parent="TextAppearance.Vidyarthi.DashaMaha">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.DashaMeta" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.DashaMetaCurrent" parent="TextAppearance.Vidyarthi.DashaMeta">
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="TextAppearance.Vidyarthi.AccentTag" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/blood_red</item>
+    </style>
+
+    <style name="Widget.Vidyarthi.Spinner.RajaYear" parent="Widget.Vidyarthi.Spinner">
+        <item name="android:background">@drawable/bg_raja_year_spinner_field</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:minHeight">52dp</item>
     </style>
 
 </resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/lalkitab_mukhya_grah_title"
+        app:titleTextColor="@color/blood_red" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mukhyaNestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="false"
+        android:overScrollMode="ifContentScrolls"
+        android:padding="12dp"
+        android:paddingBottom="20dp">
+
+        <include layout="@layout/part_mukhya_grah_body" />
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

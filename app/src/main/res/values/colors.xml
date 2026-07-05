@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- ORANGE for boxes, buttons -->
-    <color name="orange_main">#FF9800</color>
+    <!-- Spiritual Premium Lal Kitab palette -->
+    <color name="deep_maroon">#7A1010</color>
+    <color name="golden">#E8C85C</color>
+    <color name="soft_orange">#F4A623</color>
+    <color name="cream_white">#FFFDF8</color>
 
-    <!-- BLOOD RED for ALL text -->
-    <color name="blood_red">#8B0000</color>
+    <!-- Legacy aliases (keep existing references working) -->
+    <color name="blood_red">@color/deep_maroon</color>
+    <color name="orange_main">@color/soft_orange</color>
+    <color name="orange_deep">#E89410</color>
+    <color name="orange_emphasis">#D97E00</color>
+    <color name="brand_red">#D32F2F</color>
+    <color name="ic_launcher_bg">#D32F2F</color>
 
-    <!-- Background -->
-    <color name="white_bg">#FFFFFF</color>
+    <color name="om_peach">#FFE8D4</color>
+    <color name="cream_card">@color/cream_white</color>
+    <color name="cream_elevated">#FFF5EA</color>
+    <color name="text_muted">#9A5A4A</color>
+    <color name="tab_text_inactive">#9E8A85</color>
+    <color name="tab_card_active_fill">#55E8C85C</color>
+
+    <color name="dasha_card_surface">@color/cream_white</color>
+    <color name="dasha_card_stroke">@color/golden</color>
+    <color name="dasha_date_text">#A64B2A</color>
+    <color name="dasha_highlight_fill">#FFF0D0</color>
+
+    <color name="divider_warm">#E8C85C</color>
+    <color name="field_divider">#D4BC8A</color>
+    <color name="card_stroke">#66E8C85C</color>
+    <color name="overlay_scrim">#337A1010</color>
+    <color name="card_shadow">#1A7A1010</color>
 
 </resources>

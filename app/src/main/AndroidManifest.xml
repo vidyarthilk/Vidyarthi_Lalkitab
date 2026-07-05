@@ -2,26 +2,87 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
     <application
-        android:allowBackup="true"
+        android:name=".VidyarthiLalkitabApp"
+        android:allowBackup="false"
+        android:forceDarkAllowed="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="વિદ્યાર્થી_લાલકિતાબ"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:localeConfig="@xml/locales_config"
         android:theme="@style/Theme.Vidyarthi_Lalkitab">
+
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Vidyarthi_Lalkitab">
+            android:theme="@style/Theme.Vidyarthi_Lalkitab.Splash"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".KundliFlowActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vidyarthi_Lalkitab"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.kundli.VarshfalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.kundli.LalKitabDashaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vidyarthi_Lalkitab" />
+        <activity
+            android:name=".ui.kundli.LalKitabAntardashaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vidyarthi_Lalkitab" />
+        <activity
+            android:name=".ui.lalkitab.LalKitabMukhyaGrahActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vidyarthi_Lalkitab" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vidyarthi_Lalkitab" />
+        <activity
+            android:name=".EphemerisErrorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vidyarthi_Lalkitab" />
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vidyarthi_Lalkitab"
+            android:windowSoftInputMode="adjustResize" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

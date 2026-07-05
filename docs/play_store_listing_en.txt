@@ -1,0 +1,27 @@
+=== GOOGLE PLAY STORE LISTING (English) ===
+App name (max 30): Vidyarthi Lalkitab
+
+Short description (max 80):
+Lal Kitab kundli, panchang, varshfal & 35-year cycle — save charts offline.
+
+Full description (max 4000):
+Vidyarthi Lalkitab helps you create and save birth charts using Lal Kitab traditions.
+
+Features:
+• New kundli — enter name, date, time, and city with smart city search
+• Saved kundli list — open, edit, or delete your records
+• Panchang — tithi, nakshatra, yoga, karana, sunrise/sunset
+• Janma kundli chart — lagna and planetary positions
+• Varshfal — annual chart
+• 35-year Lal Kitab cycle
+• Raja–Vazir–Dhoka (main planets)
+• Hindi and English interface
+
+Your birth details are stored only on your device. Kundli calculations work offline. Ads appear only on data-entry and saved-list screens.
+
+Perfect for students and practitioners of Lal Kitab astrology.
+
+Category suggestion: Lifestyle or Books & Reference
+
+Contact email: YOUR_EMAIL@example.com
+Privacy policy URL: (host docs/privacy_policy.html — see docs/HOST_PRIVACY_POLICY.txt)

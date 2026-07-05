@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutModule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_screen_horizontal"
+        android:layout_marginTop="@dimen/kundli_module_tab_row_margin_top"
+        android:background="@android:color/transparent"
+        android:clipToPadding="false"
+        android:paddingVertical="@dimen/kundli_module_tab_row_padding_v"
+        app:tabBackground="@android:color/transparent"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@android:color/transparent"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="fixed"
+        app:tabPaddingEnd="@dimen/kundli_module_tab_gap_half"
+        app:tabPaddingStart="@dimen/kundli_module_tab_gap_half"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabSelectedTextColor="@color/deep_maroon"
+        app:tabTextAppearance="@style/TabTextStyle"
+        app:tabTextColor="@color/tab_text_inactive" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerModule"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

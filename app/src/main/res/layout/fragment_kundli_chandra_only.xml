@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/spacing_screen_vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_screen_horizontal"
+        android:paddingTop="8dp">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Vidyarthi.KundliChartCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.vidyarthi.lalkitab.ui.kundli.KundliChartView
+                android:id="@+id/chandraChartView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/kundli_chart_compact_size" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Vidyarthi.BudhSvabhavCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/budh_svabhav_card_margin_top"
+            app:cardBackgroundColor="@color/cream_elevated"
+            app:contentPadding="@dimen/budh_svabhav_card_content_padding">
+
+            <TextView
+                android:id="@+id/tvBudhSvabhavChandra"
+                style="@style/TextAppearance.Vidyarthi.BudhSvabhav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_info_card"
+                android:paddingHorizontal="@dimen/budh_svabhav_inner_padding_h"
+                android:paddingVertical="@dimen/budh_svabhav_inner_padding_v" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

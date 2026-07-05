@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fillViewport="false"
+    android:overScrollMode="ifContentScrolls">
+
+    <LinearLayout
+        android:id="@+id/varshfalRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_screen_horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="@dimen/spacing_screen_vertical">
+
+        <include layout="@layout/include_varshfal_year_selector_compact" />
+
+        <include
+            layout="@layout/include_dual_kundli_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/varshfal_chart_section_gap" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

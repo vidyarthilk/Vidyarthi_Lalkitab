@@ -1,0 +1,39 @@
+
+Privacy Policy
+
+Vidyarthi Lalkitab Â· Last updated: May 2026
+
+This policy describes how the Vidyarthi Lalkitab Android app (â€œweâ€, â€œthe appâ€) handles information. The app provides Lal Kitab kundli, panchang, and related astrology calculations.
+1. Information you enter
+
+You may enter name, birth date, birth time, birth place (city), and gender to create and save kundli records. This data is stored only on your device in a local database. We do not operate a server that receives your birth details.
+2. Advertising (Google AdMob)
+
+The free version shows ads through Google AdMob on input and saved-list screens only (not on kundli chart screens). AdMob may collect and use data such as:
+
+    Advertising ID
+    Device type, OS version, language
+    IP address (approximate location)
+    Ad interaction data
+
+This is processed by Google under the Google Privacy Policy and How Google uses data in advertising. You can limit ad personalization in your device settings.
+3. Internet
+
+Internet is used to load advertisements. Core kundli and panchang calculations work offline after the app is installed.
+4. Children
+
+The app is not directed at children under 13. We do not knowingly collect personal information from children.
+5. Data retention and deletion
+
+Saved kundli data remains on your device until you delete it in the app or uninstall the app. Uninstalling removes local app data.
+6. Security
+
+We do not transmit your saved kundli records to our servers. Use a secure device lock to protect data on your phone.
+7. Changes
+
+We may update this policy. The â€œLast updatedâ€ date will change when we do. Continued use of the app means you accept the updated policy.
+8. Contact
+
+For privacy questions, contact: vidyarthilalkitab@gmail.com
+
+àª—à«àªœàª°àª¾àª¤à«€: àªœàª¨à«àª® àªµàª¿àª—àª¤ àª«àª•à«àª¤ àª«à«‹àª¨ àªªàª° àª¸àª¾àªšàªµàª¾àª¯ àª›à«‡; àªœàª¾àª¹à«‡àª°àª¾àª¤à«‹ Google AdMob àª¦à«àªµàª¾àª°àª¾ àª²à«‹àª¡ àª¥àª¾àª¯ àª›à«‡.

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nav_home" type="id" />
+    <item name="nav_panchang" type="id" />
+    <item name="nav_kundli" type="id" />
+    <item name="nav_varshfal" type="id" />
+    <item name="nav_35_varsh" type="id" />
+</resources>

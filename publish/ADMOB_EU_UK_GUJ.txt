@@ -1,0 +1,53 @@
+=== UK / Europe (EU EEA) — Ad consent setup ===
+App code (UMP SDK) is already in the project. You must finish AdMob Console setup.
+
+--- STEP 1: AdMob Privacy & messaging (required) ---
+
+1. Open https://admob.google.com
+2. Select app: Vidyarthi Lalkitab
+3. Go to: Privacy & messaging  (or GDPR / European regulations)
+4. Create message:
+   - Type: GDPR / User consent (UMP)
+   - Regions: European Economic Area (EEA) + United Kingdom
+   - Language: English (add Hindi if offered)
+5. Options to include:
+   - Personalized ads
+   - Non-personalized ads (recommended to allow)
+6. Publish the message
+
+Without this step, EU/UK users may not see a consent form and ads may not fill.
+
+--- STEP 2: Link AdMob app to Firebase (if not done) ---
+
+AdMob → App settings → Link to Firebase project (Vidyarthi Lalkitab)
+
+--- STEP 3: Test (optional) ---
+
+AdMob → Privacy & messaging → Manage test devices
+Add your phone device ID for testing consent form.
+
+Or use VPN set to Germany/UK, install app, open — consent popup should appear before ads.
+
+--- STEP 4: In-app (already done in code) ---
+
+- Consent form before main screen and ads
+- Settings → Ad privacy settings (shown when required)
+- Ads load only after consent (canRequestAds)
+
+--- STEP 5: Play Console ---
+
+Data safety form already declares:
+- Approximate location, Device IDs, App interactions (AdMob)
+- Email (account, device only)
+
+No extra Play form only for EU — AdMob UMP covers ad consent.
+
+--- Summary ---
+
+| Who does what | Task |
+|---------------|------|
+| YOU (AdMob)   | Privacy & messaging → GDPR message → Publish |
+| CODE (done)   | UMP SDK, consent before ads, privacy button |
+| YOU (test)    | VPN EU or test device → open app → form shows |
+
+Contact: vidyarthilalkitab@gmail.com

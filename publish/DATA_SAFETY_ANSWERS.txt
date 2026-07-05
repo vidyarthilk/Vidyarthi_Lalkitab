@@ -1,0 +1,42 @@
+=== DATA SAFETY FORM (Play Console) — Updated June 2026 ===
+App: Vidyarthi Lalkitab v5.1 | Package: com.vidyarthi.lalkitab
+
+Overview:
+- Collect or share data? → YES (AdMob + optional email on device)
+- Encrypted in transit? → YES
+- Account creation? → Username and password (email + password, device-only)
+
+Account deletion URL:
+  https://vidyarthilk.github.io/vidyarthi-lalkitab-privacy/
+Delete data without deleting account? → YES (same URL; delete saved kundlis in app)
+
+--- DATA TYPES TO DECLARE ---
+
+Location:
+  ✅ Approximate location (AdMob) — Collected + Shared — Advertising — Ephemeral: No
+  ❌ Precise location
+
+Personal info:
+  ✅ Email address — Collected only — NOT Shared — Account management — Users can choose
+  ❌ Name, DOB, address, phone (device-only, not transmitted to developer)
+
+Financial info:
+  ✅ Purchase history (Play Billing subscription) — Collected + Shared — App functionality
+
+Device or other IDs:
+  ✅ Advertising or device ID — Collected + Shared — Advertising
+
+App activity:
+  ✅ App interactions (ad views/clicks) — Collected + Shared — Advertising
+
+App info and performance (if Google flags missing):
+  ✅ Diagnostics — Collected + Shared — Advertising or Analytics
+
+All other categories → leave unchecked:
+  Health, Messages, Photos, Audio, Files, Calendar, Contacts, Web browsing
+
+--- SUBMIT ---
+Save each type → complete all steps → Submit Data safety
+
+Privacy policy URL (App content):
+  https://vidyarthilk.github.io/vidyarthi-lalkitab-privacy/

@@ -1,0 +1,19 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ✅ Selected -->
+    <item android:state_selected="true">
+        <shape>
+            <solid android:color="#99FFFFFF"/> <!-- more visible -->
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+
+    <!-- ✅ Default -->
+    <item>
+        <shape>
+            <solid android:color="#40FFFFFF"/> <!-- light glass effect -->
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+
+</selector>

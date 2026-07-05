@@ -13,3 +13,20 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# IDE / tooling noise
+.idea/
+.kotlin/
+*.sqbpro
+
+# Secrets & signing (never commit)
+admob.properties
+app/google-services.json
+local-maven/
+publisher.config
+keystore.properties
+*.jks
+*.keystore
+release/
+
+# Guava also vendored under local-maven-repo/ (see app/libs + scripts/download-guava.ps1)

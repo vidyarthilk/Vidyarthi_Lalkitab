@@ -1,30 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    <!-- ================================================= -->
-    <!-- APP THEME -->
-    <!-- ================================================= -->
+
     <style name="Theme.Vidyarthi_Lalkitab"
-        parent="Theme.Material3.DayNight.NoActionBar">
+        parent="Theme.Material3.Light.NoActionBar">
 
-        <!-- ORANGE everywhere -->
+        <item name="fontFamily">@font/kalam_family</item>
+        <item name="android:fontFamily">@font/kalam_family</item>
+        <item name="android:textViewStyle">@style/Widget.Vidyarthi.TextView</item>
+        <item name="android:editTextStyle">@style/Widget.Vidyarthi.EditField</item>
+
         <item name="colorPrimary">@color/orange_main</item>
-        <item name="colorSecondary">@color/orange_main</item>
-        <item name="colorTertiary">@color/orange_main</item>
+        <item name="colorSecondary">@color/brand_red</item>
+        <item name="colorTertiary">@color/orange_deep</item>
+        <item name="colorSurface">@android:color/transparent</item>
+        <item name="colorSurfaceVariant">@android:color/transparent</item>
+        <item name="colorOnSurface">@color/blood_red</item>
+        <item name="colorOutline">@color/divider_warm</item>
 
-        <!-- BACKGROUND -->
-        <item name="android:windowBackground">@color/white_bg</item>
-
-        <!-- BLOOD RED TEXT -->
+        <item name="android:windowBackground">@drawable/bg_om</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
         <item name="android:textColor">@color/blood_red</item>
         <item name="android:textColorPrimary">@color/blood_red</item>
-        <item name="android:textColorSecondary">@color/blood_red</item>
+        <item name="android:textColorSecondary">@color/text_muted</item>
+        <item name="android:statusBarColor">@color/om_peach</item>
+        <item name="android:navigationBarColor">@color/om_peach</item>
 
-        <!-- REMOVE ROUNDED LOOK (GLOBAL) -->
-        <item name="shapeAppearanceSmallComponent">@style/Shape.Square</item>
-        <item name="shapeAppearanceMediumComponent">@style/Shape.Square</item>
-        <item name="shapeAppearanceLargeComponent">@style/Shape.Square</item>
+        <item name="materialCardViewStyle">@style/Widget.Vidyarthi.Card</item>
+        <item name="materialButtonStyle">@style/Widget.Vidyarthi.PrimaryButton</item>
 
+        <item name="shapeAppearanceSmallComponent">@style/Shape.RoundedSmall</item>
+        <item name="shapeAppearanceMediumComponent">@style/Shape.RoundedMedium</item>
+        <item name="shapeAppearanceLargeComponent">@style/Shape.RoundedLarge</item>
+    </style>
+
+    <style name="Theme.Vidyarthi_Lalkitab.Splash" parent="Theme.Vidyarthi_Lalkitab">
+        <item name="android:windowBackground">@drawable/bg_om</item>
+    </style>
+
+    <!-- Material clock time picker — orange header, AM/PM (like Vidyarthi app) -->
+    <style name="ThemeOverlay.Vidyarthi.TimePicker" parent="ThemeOverlay.Material3.MaterialTimePicker">
+        <item name="colorPrimary">@color/orange_main</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSurface">@color/cream_card</item>
+        <item name="colorOnSurface">@color/blood_red</item>
+        <item name="colorTertiary">@color/orange_deep</item>
+    </style>
+
+    <!-- Date/time picker — OK / Cancel dark red, easy to see on cream background -->
+    <style name="Theme.Vidyarthi.Dialog" parent="Theme.Material3.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/blood_red</item>
+        <item name="colorSecondary">@color/orange_main</item>
+        <item name="colorOnSurface">@color/blood_red</item>
+        <item name="android:textColorPrimary">@color/blood_red</item>
+        <item name="android:textColor">@color/blood_red</item>
+        <item name="android:colorAccent">@color/blood_red</item>
+        <item name="buttonBarButtonStyle">@style/Widget.Vidyarthi.DialogButton</item>
+        <item name="android:buttonBarButtonStyle">@style/Widget.Vidyarthi.DialogButton</item>
+        <item name="android:background">@color/cream_card</item>
+    </style>
+
+    <style name="Shape.RoundedSmall" parent="Shape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="Shape.RoundedMedium" parent="Shape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="Shape.RoundedLarge" parent="Shape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
     </style>
 
 </resources>

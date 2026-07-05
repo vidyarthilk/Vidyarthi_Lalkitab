@@ -1,0 +1,165 @@
+package com.vidyarthi.lalkitab.utils
+
+import com.vidyarthi.lalkitab.data.KundliData
+import swisseph.DblObj
+import swisseph.SweConst
+import java.time.LocalDate
+import kotlin.math.min
+
+/**
+ * Lal Kitab janma samay graha logic aligned with Vidyarthi app:
+ * - Daytime: 12 kalak slots with scaled 10-part rule (Guru2, Surya1, Chandra1, Mangal2, Shukra2, Budh2).
+ * - Night: Rahu till evening civil twilight (-6 deg), last 2 kalak before sunrise = Ketu,
+ *   middle night Chandra after moonrise, else Amavasya => Shukra, otherwise Shani.
+ */
+object LalKitabSamayGrahaCalculator {
+
+    fun planetKeyAtBirth(k: KundliData): String {
+        val birthJD = TimeUtils.julianDayUtcForBirth(k)
+        val dayInfo = PanchangEngine.calculateDayInfo(k)
+        return planetKeyAtBirthJd(k, birthJD, dayInfo)
+    }
+
+    fun planetKeyAtBirthJd(k: KundliData, birthJD: Double, dayInfo: com.vidyarthi.lalkitab.data.PanchangDayInfo): String {
+        val sunriseJD = dayInfo.sunriseJD
+        val sunsetJD = dayInfo.sunsetJD
+        val nextSunriseJD = dayInfo.nextSunriseJD
+        val birthDate = LocalDate.of(k.year, k.month, k.day)
+        val prevDate = birthDate.minusDays(1)
+
+        var prevSunsetJD = PanchangEngine.sunRiseSetSwiss(
+            prevDate.year, prevDate.monthValue, prevDate.dayOfMonth,
+            k.longitude, k.latitude, k.timezone, false
+        )
+        while (prevSunsetJD >= sunriseJD) prevSunsetJD -= 1.0
+        while (prevSunsetJD < sunriseJD - 1.25) prevSunsetJD += 1.0
+
+        val moonriseJD = PanchangEngine.moonRiseJdUt(
+            k.year, k.month, k.day,
+            k.longitude, k.latitude, k.timezone
+        )?.let { normalizeMoonToSunriseDay(it, sunriseJD) }
+        val moonrisePrevDayJD = PanchangEngine.moonRiseJdUt(
+            prevDate.year, prevDate.monthValue, prevDate.dayOfMonth,
+            k.longitude, k.latitude, k.timezone
+        )?.let { normalizeMoonToSunriseDay(it, sunriseJD) }
+        val tithiInfo = PanchangEngine.calculateTithiInfo(k)
+        val isAmavasyaTithi = tithiInfo.janmaTithiIndex == 30
+
+        val dayKalakLen = (sunsetJD - sunriseJD) / 12.0
+        val nightKalakLenThis = (nextSunriseJD - sunsetJD) / 12.0
+        val nightKalakLenPrev = (sunriseJD - prevSunsetJD) / 12.0
+
+        if (dayKalakLen <= 1e-8 || nightKalakLenThis <= 1e-8 || nightKalakLenPrev <= 1e-8) {
+            return "શનિ"
+        }
+
+        if (birthJD >= sunriseJD && birthJD < sunsetJD) {
+            val kSlot = (birthJD - sunriseJD) / dayKalakLen
+            return dayLordFromKalakSlot(kSlot)
+        }
+
+        if (birthJD >= sunsetJD && birthJD < nextSunriseJD) {
+            val civilDuskEnd = eveningCivilTwilightEndJD(
+                sunsetJD, nextSunriseJD, k.longitude, k.latitude
+            ) ?: (sunsetJD + min(2.0 * nightKalakLenThis, 2.5 / 24.0))
+            if (birthJD < civilDuskEnd) return "રાહુ"
+            val h = (birthJD - sunsetJD) / nightKalakLenThis
+            if (h >= 10.0) return "કેતુ"
+            return nightMiddleLord(
+                birthJD = birthJD,
+                moonriseTodayJD = moonriseJD,
+                moonrisePrevDayJD = moonrisePrevDayJD,
+                isAmavasyaTithi = isAmavasyaTithi,
+                beforeSunrise = false
+            )
+        }
+
+        if (birthJD < sunriseJD) {
+            val civilDuskEndPrev = eveningCivilTwilightEndJD(
+                prevSunsetJD, sunriseJD, k.longitude, k.latitude
+            ) ?: (prevSunsetJD + min(2.0 * nightKalakLenPrev, 2.5 / 24.0))
+            if (birthJD < civilDuskEndPrev) return "રાહુ"
+            val h = (birthJD - prevSunsetJD) / nightKalakLenPrev
+            if (h >= 10.0) return "કેતુ"
+            return nightMiddleLord(
+                birthJD = birthJD,
+                moonriseTodayJD = moonriseJD,
+                moonrisePrevDayJD = moonrisePrevDayJD,
+                isAmavasyaTithi = isAmavasyaTithi,
+                beforeSunrise = true
+            )
+        }
+
+        return "શનિ"
+    }
+
+    private fun normalizeMoonToSunriseDay(jdEvent: Double, sunriseJdUT: Double): Double {
+        var jd = jdEvent
+        if (jd < sunriseJdUT - 0.5) jd += 1.0
+        return jd
+    }
+
+    private fun dayLordFromKalakSlot(kSlot: Double): String {
+        val scale = 12.0 / 10.0
+        var cum = 0.0
+        val segments = listOf(
+            "ગુરુ" to 2.0 * scale,
+            "સૂર્ય" to 1.0 * scale,
+            "ચંદ્ર" to 1.0 * scale,
+            "મંગળ" to 2.0 * scale,
+            "શુક્ર" to 2.0 * scale,
+            "બુધ" to 2.0 * scale
+        )
+        for ((name, w) in segments) {
+            cum += w
+            if (kSlot < cum) return name
+        }
+        return segments.last().first
+    }
+
+    private fun eveningCivilTwilightEndJD(
+        sunsetJdUT: Double,
+        nightEndJdUT: Double,
+        lon: Double,
+        lat: Double
+    ): Double? {
+        val sw = SwissEphManager.get()
+        val geopos = doubleArrayOf(lon, lat, 0.0)
+        val tret = DblObj()
+        val serr = StringBuffer()
+        val jdStart = sunsetJdUT + 1.0 / 1440.0
+        val result = sw.swe_rise_trans_true_hor(
+            jdStart,
+            SweConst.SE_SUN,
+            StringBuffer(),
+            SweConst.SEFLG_SWIEPH,
+            SweConst.SE_CALC_SET,
+            geopos,
+            1013.25,
+            15.0,
+            -6.0,
+            tret,
+            serr
+        )
+        if (result < 0) return null
+        val t = tret.`val`
+        if (t <= sunsetJdUT || t >= nightEndJdUT) return null
+        return t
+    }
+
+    private fun nightMiddleLord(
+        birthJD: Double,
+        moonriseTodayJD: Double?,
+        moonrisePrevDayJD: Double?,
+        isAmavasyaTithi: Boolean,
+        beforeSunrise: Boolean
+    ): String {
+        if (beforeSunrise) {
+            if (moonrisePrevDayJD != null && birthJD >= moonrisePrevDayJD - 1e-8) return "ચંદ્ર"
+        } else {
+            if (moonriseTodayJD != null && birthJD >= moonriseTodayJD - 1e-8) return "ચંદ્ર"
+        }
+        if (isAmavasyaTithi) return "શુક્ર"
+        return "શનિ"
+    }
+}

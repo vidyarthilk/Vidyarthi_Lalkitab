@@ -1,0 +1,21 @@
+=== Point D — Play Console માં Subscription ===
+
+પહેલાં Play Console account + app create કરો (જો ન હોય):
+  https://play.google.com/console  ($25 એક વાર)
+
+પછી તમારી app → Monetize → Products → Subscriptions → Create subscription
+
+  Product ID (બરાબર આ જ — app code સાથે match):
+    vidyarthi_lalkitab_premium
+
+  Name (user દેખે):  Vidyarthi Premium
+  Description:        Unlimited saved kundlis, no ads
+
+  Base plan: monthly અથવા yearly — price સેટ કરો (દા.ત. ₹99/month)
+  Status: ACTIVATE કરો
+
+License testing (purchase ટેસ્ટ):
+  Setup → License testing → તમારો Gmail add
+
+App માં ટેસ્ટ:
+  Settings → Subscribe → purchase → Premium active

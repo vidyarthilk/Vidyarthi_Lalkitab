@@ -1,0 +1,13 @@
+# =============================================================================
+# Copy this file to:  publisher.config  (same folder as settings.gradle.kts)
+# Fill ALL values below, then run:  .\scripts\sync-publish-config.ps1
+# =============================================================================
+
+# Play Console contact + privacy policy HTML
+developer.email=your.email@gmail.com
+privacy.policy.url=https://YOUR_USERNAME.github.io/vidyarthi-lalkitab-privacy/
+
+# From https://admob.google.com → Apps → Vidyarthi Lalkitab
+admob.app.id=ca-app-pub-XXXXXXXXXXXXXXXX~YYYYYYYYYY
+admob.banner.id=ca-app-pub-XXXXXXXXXXXXXXXX/ZZZZZZZZZZ
+admob.interstitial.id=

@@ -1,0 +1,18 @@
+How to publish privacy_policy.html (free options)
+================================================
+
+1. GitHub Pages (recommended)
+   - Create a new public repo, e.g. vidyarthi-lalkitab-privacy
+   - Upload docs/privacy_policy.html as index.html
+   - Settings → Pages → branch main → Save
+   - URL: https://YOUR_USERNAME.github.io/vidyarthi-lalkitab-privacy/
+   - Edit YOUR_EMAIL in the HTML before uploading
+   - Paste this URL in Play Console → Privacy policy
+   - Update app/src/main/res/values/strings.xml → privacy_policy_url
+
+2. Google Sites
+   - sites.google.com → New site → Embed or paste HTML content
+   - Publish → copy link → Play Console
+
+3. Play Console
+   - App content → Privacy policy → paste the public URL

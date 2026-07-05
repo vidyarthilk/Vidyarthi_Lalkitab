@@ -1,0 +1,8 @@
+# Copy this file to admob.properties (same folder as settings.gradle.kts)
+# Get IDs from https://admob.google.com → Apps → Vidyarthi Lalkitab → Ad units
+#
+# Required for release AAB build. Debug builds use Google test ads automatically.
+
+ADMOB_APP_ID=ca-app-pub-XXXXXXXXXXXXXXXX~YYYYYYYYYY
+ADMOB_BANNER_ID=ca-app-pub-XXXXXXXXXXXXXXXX/ZZZZZZZZZZ
+ADMOB_INTERSTITIAL_ID=ca-app-pub-XXXXXXXXXXXXXXXX/WWWWWWWWWW

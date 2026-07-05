@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fillViewport="false"
+    android:paddingBottom="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/titleJanmaChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="6dp"
+                    android:text="@string/chart_janma_kundli"
+                    android:textColor="@color/blood_red"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <com.vidyarthi.lalkitab.ui.kundli.KundliChartView
+                    android:id="@+id/janmaChartView"
+                    android:layout_width="match_parent"
+                android:layout_height="@dimen/kundli_chart_compact_size" />
+
+                <TextView
+                    android:id="@+id/tvBudhSvabhavJanma"
+                    style="@style/TextAppearance.Vidyarthi.BudhSvabhav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/titleChandraChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="6dp"
+                    android:text="@string/chart_chandra_kundli_lalkitab"
+                    android:textColor="@color/blood_red"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <com.vidyarthi.lalkitab.ui.kundli.KundliChartView
+                    android:id="@+id/chandraChartView"
+                    android:layout_width="match_parent"
+                android:layout_height="@dimen/kundli_chart_compact_size" />
+
+                <TextView
+                    android:id="@+id/tvBudhSvabhavChandra"
+                    style="@style/TextAppearance.Vidyarthi.BudhSvabhav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabKundliSource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:background="@android:color/transparent"
+        app:tabBackground="@android:color/transparent"
+        app:tabIndicatorColor="@color/orange_main"
+        app:tabMode="fixed"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabSelectedTextColor="@color/blood_red"
+        app:tabTextAppearance="@style/TextAppearance.Vidyarthi.Label"
+        app:tabTextColor="@color/blood_red" />
+
+    <LinearLayout
+        android:id="@+id/panelJanmaKundli"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Vidyarthi.KundliChartCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.vidyarthi.lalkitab.ui.kundli.KundliChartView
+                android:id="@+id/janmaChart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/kundli_chart_compact_size" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Vidyarthi.BudhSvabhavCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/budh_svabhav_card_margin_top"
+            android:layout_marginBottom="@dimen/budh_svabhav_card_margin_bottom">
+
+            <TextView
+                android:id="@+id/textBudhJanma"
+                style="@style/TextAppearance.Vidyarthi.BudhSvabhav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_info_card"
+                android:paddingHorizontal="@dimen/budh_svabhav_inner_padding_h"
+                android:paddingVertical="@dimen/budh_svabhav_inner_padding_v" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panelChandraKundli"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Vidyarthi.KundliChartCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.vidyarthi.lalkitab.ui.kundli.KundliChartView
+                android:id="@+id/chandraChart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/kundli_chart_compact_size" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Vidyarthi.BudhSvabhavCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/budh_svabhav_card_margin_top"
+            android:layout_marginBottom="@dimen/budh_svabhav_card_margin_bottom">
+
+            <TextView
+                android:id="@+id/textBudhChandra"
+                style="@style/TextAppearance.Vidyarthi.BudhSvabhav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_info_card"
+                android:paddingHorizontal="@dimen/budh_svabhav_inner_padding_h"
+                android:paddingVertical="@dimen/budh_svabhav_inner_padding_v" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</LinearLayout>
