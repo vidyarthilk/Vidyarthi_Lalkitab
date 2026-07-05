@@ -6,6 +6,7 @@ import com.vidyarthi.lalkitab.MainActivity
 import com.vidyarthi.lalkitab.R
 import com.vidyarthi.lalkitab.data.KundliData
 import com.vidyarthi.lalkitab.navigation.MainKundliNavigator
+import com.vidyarthi.lalkitab.utils.KundliHolder
 
 object KundliFlowLauncher {
 

@@ -7,6 +7,7 @@ import android.util.Log
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.vidyarthi.lalkitab.BuildConfig
 import kotlinx.coroutines.CoroutineScope

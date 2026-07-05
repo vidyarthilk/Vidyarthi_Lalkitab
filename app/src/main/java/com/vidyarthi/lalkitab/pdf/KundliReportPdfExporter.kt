@@ -21,6 +21,7 @@ import com.vidyarthi.lalkitab.utils.LalKitabDashaCalculator
 import com.vidyarthi.lalkitab.utils.LalKitabDashaDates
 import com.vidyarthi.lalkitab.utils.LalKitabDashaExpand
 import com.vidyarthi.lalkitab.utils.PanchangLabelResolver
+import com.vidyarthi.lalkitab.utils.PanchangUiState
 import com.vidyarthi.lalkitab.utils.PlanetNames
 import com.vidyarthi.lalkitab.utils.VarshfalRajaVazirHelper
 import com.vidyarthi.lalkitab.utils.VarshfalTable
@@ -187,7 +188,7 @@ object KundliReportPdfExporter {
         val dest = RectF(MARGIN_H, y, MARGIN_H + maxW, y + imgH)
         c.drawBitmap(bitmap, null, dest, null)
         y = dest.bottom + 10f
-        drawLines(c, listOf(budh), MARGIN_H, y, smallPaint, maxW)
+        drawLines(c, listOf(budh.toString()), MARGIN_H, y, smallPaint, maxW)
         bitmap.recycle()
         drawFooter(c, ctx, bodyPaint)
         doc.finishPage(page)
