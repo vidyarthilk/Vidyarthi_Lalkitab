@@ -23,7 +23,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
     }
 
     override fun setContentView(layoutResID: Int) {
@@ -83,6 +82,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private fun publishContentView(wrapper: FrameLayout) {
         super.setContentView(wrapper)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         WindowInsetsUi.applyToContent(wrapper.findViewById(R.id.content_container))
     }
 }
