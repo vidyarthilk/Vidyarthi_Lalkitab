@@ -69,8 +69,8 @@
     <string name="auth_btn_register">खाता बनाएं</string>
     <string name="auth_btn_login_settings">Login / Register</string>
     <string name="auth_btn_logout">Logout</string>
-    <string name="auth_register_hint">एक बार register — 25 कुंडली (lifetime)। बिना login: 10। Delete से नई slot नहीं।</string>
-    <string name="auth_login_hint_existing">इस device पर registered email से login करें।</string>
+    <string name="auth_register_hint">Email થી register — કોઈ પણ phone પર login. 25 કુંડળી save. Login વગર: 10.</string>
+    <string name="auth_login_hint_existing">કોઈ પણ device પર email અને password થી login કરો.</string>
     <string name="auth_status_guest">Guest — %1$d कुंडली (lifetime)। Login से %2$d।</string>
     <string name="auth_status_logged_in">Login: %1$s — 25 कुंडली (lifetime)।</string>
     <string name="auth_login_success">Login सफल</string>
@@ -78,8 +78,10 @@
     <string name="auth_error_invalid_email">सही email दर्ज करें</string>
     <string name="auth_error_password_short">Password कम से कम 6 अक्षर</string>
     <string name="auth_error_already_registered">खाता पहले से है — login करें</string>
-    <string name="auth_error_no_account">पहले Create account करें</string>
+    <string name="auth_error_no_account">खाता नहीं मिला — पहले Create account करें</string>
     <string name="auth_error_wrong_credentials">Galat email या password</string>
+    <string name="auth_error_network">Internet check करें और फिर कोशिश करें</string>
+    <string name="auth_error_generic">Sign in नहीं हो सका — बाद में कोशिश करें</string>
 
     <string name="welcome_storage_title">कितनी कुंडली save हो सकती है?</string>
     <string name="welcome_storage_message">• बिना register: %1$d कुंडली (lifetime, इस device पर)\n• Email register: %2$d कुंडली (Settings → Account)\n• Premium subscription: unlimited saves\n\nDelete करने से नई slot नहीं मिलती — lifetime count ही मायने रखता है।</string>

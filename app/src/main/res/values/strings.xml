@@ -72,17 +72,19 @@
     <string name="auth_btn_register">Create account</string>
     <string name="auth_btn_login_settings">Login / Register</string>
     <string name="auth_btn_logout">Logout</string>
-    <string name="auth_register_hint">Register once on this device — save up to 25 kundlis (lifetime). Without login: 10 kundlis. Deleting saved kundlis does not free new slots.</string>
-    <string name="auth_login_hint_existing">Login with your registered email on this device.</string>
+    <string name="auth_register_hint">Register with email — login on any phone. Save up to 25 kundlis (lifetime). Without login: 10 kundlis.</string>
+    <string name="auth_login_hint_existing">Login with your email and password on any device.</string>
     <string name="auth_status_guest">Guest — up to %1$d kundlis (lifetime). Login for %2$d.</string>
     <string name="auth_status_logged_in">Logged in as %1$s — up to 25 kundlis (lifetime).</string>
     <string name="auth_login_success">Logged in successfully</string>
     <string name="auth_register_success">Account created — you can save up to 25 kundlis</string>
     <string name="auth_error_invalid_email">Enter a valid email address</string>
     <string name="auth_error_password_short">Password must be at least 6 characters</string>
-    <string name="auth_error_already_registered">Account already exists on this device — login instead</string>
-    <string name="auth_error_no_account">No account on this device — tap Create account first</string>
+    <string name="auth_error_already_registered">Account already exists — login instead</string>
+    <string name="auth_error_no_account">No account found — tap Create account first</string>
     <string name="auth_error_wrong_credentials">Wrong email or password</string>
+    <string name="auth_error_network">Network error — check internet and try again</string>
+    <string name="auth_error_generic">Could not sign in — try again later</string>
 
     <string name="welcome_storage_title">How many kundlis can you save?</string>
     <string name="welcome_storage_message">• Without register: %1$d kundlis (lifetime on this device)\n• With email register: %2$d kundlis (Settings → Account)\n• With Premium subscription: unlimited saves\n\nDeleting saved kundlis does not free new slots — only lifetime count matters.</string>
