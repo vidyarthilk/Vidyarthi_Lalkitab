@@ -2,7 +2,7 @@ package com.vidyarthi.lalkitab.utils
 
 import com.vidyarthi.lalkitab.data.KundliData
 
-/** Vaar (weekday) lord and Lal Kitab janma-samay graha (kalak = 60 min; not Vedic hora). */
+/** Vaar (weekday) lord and Lal Kitab janma-samay graha (11 bhag day rule; not Vedic hora). */
 object BirthPlanetsHelper {
 
     fun vaarAndHoraPlanetKeys(k: KundliData): Pair<String, String> {

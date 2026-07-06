@@ -7,12 +7,24 @@ import java.time.LocalDate
 import kotlin.math.min
 
 /**
- * Lal Kitab janma samay graha logic aligned with Vidyarthi app:
- * - Daytime: 12 kalak slots with scaled 10-part rule (Guru2, Surya1, Chandra1, Mangal2, Shukra2, Budh2).
+ * Lal Kitab janma samay graha (daytime):
+ * - Sunrise to sunset split into 11 equal bhag (no empty remainder).
+ * - Guru 2, Surya 2, Chandra 1, Mangal 2, Shukra 2, Budh 2.
  * - Night: Rahu till evening civil twilight (-6 deg), last 2 kalak before sunrise = Ketu,
  *   middle night Chandra after moonrise, else Amavasya => Shukra, otherwise Shani.
  */
 object LalKitabSamayGrahaCalculator {
+
+    private val DAY_BHAG_PLANETS = listOf(
+        "ગુરુ" to 2,
+        "સૂર્ય" to 2,
+        "ચંદ્ર" to 1,
+        "મંગળ" to 2,
+        "શુક્ર" to 2,
+        "બુધ" to 2
+    )
+
+    private const val TOTAL_DAY_BHAG = 11
 
     fun planetKeyAtBirth(k: KundliData): String {
         val birthJD = TimeUtils.julianDayUtcForBirth(k)
@@ -45,17 +57,17 @@ object LalKitabSamayGrahaCalculator {
         val tithiInfo = PanchangEngine.calculateTithiInfo(k)
         val isAmavasyaTithi = tithiInfo.janmaTithiIndex == 30
 
-        val dayKalakLen = (sunsetJD - sunriseJD) / 12.0
+        val bhagLen = (sunsetJD - sunriseJD) / TOTAL_DAY_BHAG
         val nightKalakLenThis = (nextSunriseJD - sunsetJD) / 12.0
         val nightKalakLenPrev = (sunriseJD - prevSunsetJD) / 12.0
 
-        if (dayKalakLen <= 1e-8 || nightKalakLenThis <= 1e-8 || nightKalakLenPrev <= 1e-8) {
+        if (bhagLen <= 1e-8 || nightKalakLenThis <= 1e-8 || nightKalakLenPrev <= 1e-8) {
             return "શનિ"
         }
 
         if (birthJD >= sunriseJD && birthJD < sunsetJD) {
-            val kSlot = (birthJD - sunriseJD) / dayKalakLen
-            return dayLordFromKalakSlot(kSlot)
+            val bhagIndex = (birthJD - sunriseJD) / bhagLen
+            return dayLordFromBhagIndex(bhagIndex)
         }
 
         if (birthJD >= sunsetJD && birthJD < nextSunriseJD) {
@@ -99,22 +111,13 @@ object LalKitabSamayGrahaCalculator {
         return jd
     }
 
-    private fun dayLordFromKalakSlot(kSlot: Double): String {
-        val scale = 12.0 / 10.0
+    private fun dayLordFromBhagIndex(bhagIndex: Double): String {
         var cum = 0.0
-        val segments = listOf(
-            "ગુરુ" to 2.0 * scale,
-            "સૂર્ય" to 1.0 * scale,
-            "ચંદ્ર" to 1.0 * scale,
-            "મંગળ" to 2.0 * scale,
-            "શુક્ર" to 2.0 * scale,
-            "બુધ" to 2.0 * scale
-        )
-        for ((name, w) in segments) {
-            cum += w
-            if (kSlot < cum) return name
+        for ((name, w) in DAY_BHAG_PLANETS) {
+            cum += w.toDouble()
+            if (bhagIndex < cum) return name
         }
-        return segments.last().first
+        return DAY_BHAG_PLANETS.last().first
     }
 
     private fun eveningCivilTwilightEndJD(

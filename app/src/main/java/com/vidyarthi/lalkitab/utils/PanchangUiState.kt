@@ -16,7 +16,7 @@ data class PanchangUiState(
 
     /** Internal graha keys ([PlanetNames]); weekday lord for birth date. */
     val birthdayPlanetKey: String? = null,
-    /** Lal Kitab janma samay graha (kalak = 60 min; not Vedic hora). */
+    /** Lal Kitab janma samay graha (11 bhag sunrise–sunset rule; not Vedic hora). */
     val birthtimePlanetKey: String? = null,
 
     /** Same as [birthtimePlanetKey] for 35-yr dasha ([KundliHolder]); redundant field for UI clarity. */
