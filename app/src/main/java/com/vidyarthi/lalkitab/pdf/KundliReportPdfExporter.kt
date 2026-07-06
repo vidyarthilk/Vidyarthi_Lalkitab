@@ -254,11 +254,7 @@ object KundliReportPdfExporter {
         val c = page.canvas
         var y = drawPageHeader(c, ctx, k, subscribed, profile, logo)
         y = PdfReportDrawer.drawSectionHeader(c, ctx.getString(R.string.panchang_title), y)
-
-        val cardTop = y
-        val body = PdfReportDrawer.bodyPaint()
-        val w = PdfReportDrawer.contentWidth() - 28f
-        val x = PdfReportDrawer.MARGIN + 14f
+        y += 4f
 
         data class PanchangSection(val title: String, val lines: List<String>)
         val sections = buildList {
@@ -310,16 +306,14 @@ object KundliReportPdfExporter {
             }
         }
 
-        var estH = 20f
         for (sec in sections) {
-            estH += 20f + sec.lines.size * 17f + 8f
-        }
-        PdfReportDrawer.drawCard(c, cardTop, estH)
-
-        var contentY = cardTop + 18f
-        for (sec in sections) {
-            contentY = PdfReportDrawer.drawSubheading(c, sec.title, x, contentY, body)
-            contentY = PdfReportDrawer.drawBulletLines(c, sec.lines, x, contentY, body, w) + 10f
+            if (y > PdfReportDrawer.contentBottom() - 40f) break
+            y = PdfReportDrawer.drawCenteredSectionTitle(c, sec.title, y)
+            for (line in sec.lines) {
+                if (y > PdfReportDrawer.contentBottom() - 30f) break
+                y = PdfReportDrawer.drawDetailItemBox(c, line, y)
+            }
+            y += 8f
         }
 
         PdfReportDrawer.drawFooter(c, footer, pages.pageNumber)

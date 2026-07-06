@@ -111,9 +111,60 @@ internal object PdfReportDrawer {
             color = colorWhite
             textSize = 13f
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+            textAlign = Paint.Align.CENTER
         }
-        c.drawText(title, MARGIN + 12f, y + 18f, paint)
+        c.drawText(title, PAGE_W / 2f, y + 18f, paint)
         return y + barH + 10f
+    }
+
+    /** Centered maroon title bar for Panchang sub-sections. */
+    fun drawCenteredSectionTitle(c: Canvas, title: String, y: Float): Float {
+        val barH = 22f
+        val rect = RectF(MARGIN + 6f, y, PAGE_W - MARGIN - 6f, y + barH)
+        drawRoundRect(c, rect, 5f, colorMaroon, colorGold, 0.8f)
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = colorWhite
+            textSize = 11f
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+            textAlign = Paint.Align.CENTER
+        }
+        c.drawText(title, PAGE_W / 2f, y + 15f, paint)
+        return y + barH + 8f
+    }
+
+    /** One Panchang detail line in its own rounded box (wraps long text inside). */
+    fun drawDetailItemBox(c: Canvas, text: String, y: Float): Float {
+        val inset = 10f
+        val boxLeft = MARGIN + inset
+        val boxRight = PAGE_W - MARGIN - inset
+        val boxW = boxRight - boxLeft
+        val padH = 12f
+        val padTop = 10f
+        val lineH = 14f
+        val body = bodyPaint()
+        val textH = measureTextBlockHeight(text, body, boxW - padH * 2f, lineH)
+        val boxH = textH + padTop * 2f
+        val rect = RectF(boxLeft, y, boxRight, y + boxH)
+        drawRoundRect(c, rect, 7f, colorWhite, colorGold, 0.9f)
+        drawWrapped(c, text, boxLeft + padH, y + padTop - 2f, body, boxW - padH * 2f, lineH)
+        return y + boxH + 7f
+    }
+
+    fun measureTextBlockHeight(text: String, paint: Paint, maxWidth: Float, lineHeight: Float): Float {
+        if (text.isBlank()) return lineHeight
+        val words = text.split(' ')
+        var lineCount = 1
+        var line = StringBuilder()
+        for (word in words) {
+            val trial = if (line.isEmpty()) word else "$line $word"
+            if (paint.measureText(trial) > maxWidth && line.isNotEmpty()) {
+                lineCount++
+                line = StringBuilder(word)
+            } else {
+                line = StringBuilder(trial)
+            }
+        }
+        return lineCount * lineHeight
     }
 
     fun drawCard(
