@@ -89,6 +89,39 @@
                     android:layout_marginTop="4dp"
                     android:textAppearance="@style/TextAppearance.Vidyarthi.Muted" />
 
+                <TextView
+                    android:id="@+id/tvChoosePlan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/subscription_choose_plan"
+                    android:textAppearance="@style/TextAppearance.Vidyarthi.FormFieldLabel" />
+
+                <RadioGroup
+                    android:id="@+id/rgSubscriptionPlan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp">
+
+                    <RadioButton
+                        android:id="@+id/rbPlanMonthly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/subscription_plan_monthly" />
+
+                    <RadioButton
+                        android:id="@+id/rbPlanQuarterly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/subscription_plan_quarterly" />
+
+                    <RadioButton
+                        android:id="@+id/rbPlanYearly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/subscription_plan_yearly" />
+                </RadioGroup>
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSubscribe"
                     style="@style/Widget.Vidyarthi.PrimaryButton"

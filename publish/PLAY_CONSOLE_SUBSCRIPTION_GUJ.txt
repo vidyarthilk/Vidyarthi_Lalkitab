@@ -1,21 +1,48 @@
-=== Point D — Play Console માં Subscription ===
+=== Play Console — Subscription (Monthly + Quarterly + Yearly) ===
 
-પહેલાં Play Console account + app create કરો (જો ન હોય):
-  https://play.google.com/console  ($25 એક વાર)
+Product ID (app code સાથે બરાબર match):
+  vidyarthi_lalkitab_premium
 
-પછી તમારી app → Monetize → Products → Subscriptions → Create subscription
+Play Console → Monetize → Products → Subscriptions → vidyarthi_lalkitab_premium
 
-  Product ID (બરાબર આ જ — app code સાથે match):
-    vidyarthi_lalkitab_premium
+જો subscription પહેલેથી છે તો Edit કરો. નહીં તો Create subscription.
 
-  Name (user દેખે):  Vidyarthi Premium
-  Description:        Unlimited saved kundlis, no ads
+--- Base plans (3) — IDs બરાબર આ જ રાખો ---
 
-  Base plan: monthly અથવા yearly — price સેટ કરો (દા.ત. ₹99/month)
-  Status: ACTIVATE કરો
+1) Monthly
+   Base plan ID:  monthly
+   Billing:      Every 1 month
+   Price:        ઉદા. ₹99
 
-License testing (purchase ટેસ્ટ):
-  Setup → License testing → તમારો Gmail add
+2) Quarterly
+   Base plan ID:  quarterly
+   Billing:      Every 3 months (P3M)
+   Price:        ઉદા. ₹249
 
-App માં ટેસ્ટ:
-  Settings → Subscribe → purchase → Premium active
+3) Yearly
+   Base plan ID:  yearly
+   Billing:      Every 1 year (P1Y)
+   Price:        ઉદા. ₹799
+
+દરેક base plan → Activate કરો.
+
+--- App માં શું દેખાશે ---
+
+Settings → Choose plan:
+  • Monthly — Play Store price
+  • Quarterly (3 months) — price
+  • Yearly — price
+
+કોઈ plan Play Console માં ન હોય તો app માં તે option છુપાય.
+
+--- Test ---
+
+Setup → License testing → તમારો Gmail
+App install → Settings → plan પસંદ કરો → Subscribe
+
+--- નોંધ ---
+
+Base plan ID બદલો તો app/src/main/res/values/strings.xml માં પણ બદલો:
+  subscription_base_plan_monthly
+  subscription_base_plan_quarterly
+  subscription_base_plan_yearly

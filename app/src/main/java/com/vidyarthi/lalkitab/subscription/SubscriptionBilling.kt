@@ -19,7 +19,8 @@ import com.vidyarthi.lalkitab.R
 
 /**
  * Google Play subscription for unlimited saved kundlis.
- * Create subscription in Play Console with id from [R.string.subscription_product_id].
+ * Product ID: [R.string.subscription_product_id]
+ * Base plans (Play Console): monthly, quarterly, yearly — see strings.xml.
  */
 class SubscriptionBilling(
     private val activity: Activity,
@@ -35,6 +36,7 @@ class SubscriptionBilling(
         .build()
 
     private var productDetails: ProductDetails? = null
+    private var onPlansLoaded: (() -> Unit)? = null
 
     fun start() {
         connectBilling {
@@ -43,14 +45,41 @@ class SubscriptionBilling(
         }
     }
 
-    fun launchPurchase() {
+    fun setOnPlansLoaded(listener: () -> Unit) {
+        onPlansLoaded = listener
+        if (productDetails != null) {
+            listener()
+        }
+    }
+
+    fun getAvailablePlans(): List<SubscriptionPlanOption> {
+        val details = productDetails ?: return emptyList()
+        val offers = details.subscriptionOfferDetails.orEmpty()
+        return planConfig().mapNotNull { (basePlanId, labelRes) ->
+            val offer = offers.firstOrNull { it.basePlanId.equals(basePlanId, ignoreCase = true) }
+                ?: return@mapNotNull null
+            val price = offer.pricingPhases.pricingPhaseList.firstOrNull()?.formattedPrice.orEmpty()
+            SubscriptionPlanOption(
+                basePlanId = basePlanId,
+                label = activity.getString(labelRes),
+                priceText = price,
+                offerToken = offer.offerToken
+            )
+        }
+    }
+
+    fun launchPurchase(basePlanId: String? = null) {
         val details = productDetails
         if (details == null) {
             onPurchaseMessage(activity.getString(R.string.subscription_billing_not_ready))
             queryProduct()
             return
         }
-        val offer = details.subscriptionOfferDetails?.firstOrNull()
+        val offers = details.subscriptionOfferDetails.orEmpty()
+        val targetId = basePlanId?.takeIf { it.isNotBlank() }
+            ?: planConfig().firstOrNull()?.first
+        val offer = offers.firstOrNull { it.basePlanId.equals(targetId, ignoreCase = true) }
+            ?: offers.firstOrNull()
         if (offer == null) {
             onPurchaseMessage(activity.getString(R.string.subscription_billing_not_ready))
             return
@@ -135,11 +164,19 @@ class SubscriptionBilling(
         billingClient.queryProductDetailsAsync(params) { result, detailsList ->
             if (result.responseCode == BillingClient.BillingResponseCode.OK) {
                 productDetails = detailsList.firstOrNull()
+                onPlansLoaded?.invoke()
             }
         }
     }
 
+    private fun planConfig(): List<Pair<String, Int>> = listOf(
+        activity.getString(R.string.subscription_base_plan_monthly) to R.string.subscription_plan_monthly,
+        activity.getString(R.string.subscription_base_plan_quarterly) to R.string.subscription_plan_quarterly,
+        activity.getString(R.string.subscription_base_plan_yearly) to R.string.subscription_plan_yearly
+    )
+
     fun destroy() {
+        onPlansLoaded = null
         if (billingClient.isReady) {
             billingClient.endConnection()
         }

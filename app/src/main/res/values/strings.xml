@@ -38,6 +38,14 @@
     <string name="settings_privacy_policy">Privacy policy</string>
 
     <string name="subscription_product_id" translatable="false">vidyarthi_lalkitab_premium</string>
+    <string name="subscription_base_plan_monthly" translatable="false">monthly</string>
+    <string name="subscription_base_plan_quarterly" translatable="false">quarterly</string>
+    <string name="subscription_base_plan_yearly" translatable="false">yearly</string>
+    <string name="subscription_plan_monthly">Monthly</string>
+    <string name="subscription_plan_quarterly">Quarterly (3 months)</string>
+    <string name="subscription_plan_yearly">Yearly</string>
+    <string name="subscription_plan_price_format">%1$s — %2$s</string>
+    <string name="subscription_choose_plan">Choose plan</string>
     <string name="settings_subscription">Saved Kundli storage</string>
     <string name="subscription_storage_limited">Free plan: %1$d saved now · %2$d / %3$d lifetime on this device</string>
     <string name="subscription_storage_unlimited">Premium: %1$d saved (unlimited)</string>

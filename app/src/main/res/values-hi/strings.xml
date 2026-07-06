@@ -41,6 +41,11 @@
     <string name="subscription_status_free">बिना login: 10 कुंडली lifetime। Email login: 25। Delete से नई slot नहीं। Premium: unlimited।</string>
     <string name="subscription_status_premium">प्रीमियम सक्रिय — असीमित सहेज, बिना सीमा restore, विज्ञापन बंद।</string>
     <string name="settings_subscribe">सब्सक्राइब करें (असीमित)</string>
+    <string name="subscription_plan_monthly">मासिक</string>
+    <string name="subscription_plan_quarterly">त्रैमासिक (3 महीने)</string>
+    <string name="subscription_plan_yearly">वार्षिक</string>
+    <string name="subscription_plan_price_format">%1$s — %2$s</string>
+    <string name="subscription_choose_plan">प्लान चुनें</string>
     <string name="settings_manage_subscription">सब्सक्रिप्शन प्रबंधित करें</string>
     <string name="settings_about">ऐप के बारे में</string>
     <string name="settings_version_format">संस्करण %1$s</string>

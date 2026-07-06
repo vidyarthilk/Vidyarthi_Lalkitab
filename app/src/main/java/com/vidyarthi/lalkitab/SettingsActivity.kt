@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
@@ -32,6 +33,11 @@ class SettingsActivity : BaseActivity() {
     private lateinit var btnAccountAction: MaterialButton
     private lateinit var tvSubscriptionStatus: TextView
     private lateinit var tvSubscriptionStorage: TextView
+    private lateinit var tvChoosePlan: TextView
+    private lateinit var rgSubscriptionPlan: RadioGroup
+    private lateinit var rbPlanMonthly: RadioButton
+    private lateinit var rbPlanQuarterly: RadioButton
+    private lateinit var rbPlanYearly: RadioButton
     private lateinit var btnSubscribe: MaterialButton
     private lateinit var btnManageSubscription: MaterialButton
     private lateinit var cardPdfProfile: View
@@ -72,6 +78,11 @@ class SettingsActivity : BaseActivity() {
 
         tvSubscriptionStatus = findViewById(R.id.tvSubscriptionStatus)
         tvSubscriptionStorage = findViewById(R.id.tvSubscriptionStorage)
+        tvChoosePlan = findViewById(R.id.tvChoosePlan)
+        rgSubscriptionPlan = findViewById(R.id.rgSubscriptionPlan)
+        rbPlanMonthly = findViewById(R.id.rbPlanMonthly)
+        rbPlanQuarterly = findViewById(R.id.rbPlanQuarterly)
+        rbPlanYearly = findViewById(R.id.rbPlanYearly)
         btnSubscribe = findViewById(R.id.btnSubscribe)
         btnManageSubscription = findViewById(R.id.btnManageSubscription)
         cardPdfProfile = findViewById(R.id.cardPdfProfile)
@@ -80,7 +91,7 @@ class SettingsActivity : BaseActivity() {
         etProfileAddress = findViewById(R.id.etProfileAddress)
         findViewById<MaterialButton>(R.id.btnSaveProfile).setOnClickListener { savePdfProfile() }
         loadPdfProfile()
-        btnSubscribe.setOnClickListener { subscriptionBilling?.launchPurchase() }
+        btnSubscribe.setOnClickListener { subscriptionBilling?.launchPurchase(selectedBasePlanId()) }
         btnManageSubscription.setOnClickListener { openManageSubscription() }
 
         subscriptionBilling = SubscriptionBilling(this) {
@@ -89,6 +100,7 @@ class SettingsActivity : BaseActivity() {
             billing.setPurchaseMessageHandler { message ->
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show()
             }
+            billing.setOnPlansLoaded { bindSubscriptionPlans() }
         }
 
         findViewById<MaterialButton>(R.id.btnPrivacyPolicy).setOnClickListener {
@@ -145,6 +157,7 @@ class SettingsActivity : BaseActivity() {
         super.onResume()
         refreshAccountUi()
         subscriptionBilling?.refreshEntitlement()
+        bindSubscriptionPlans()
         refreshSubscriptionUi()
     }
 
@@ -178,6 +191,9 @@ class SettingsActivity : BaseActivity() {
         }
         btnSubscribe.visibility = if (subscribed) View.GONE else View.VISIBLE
         btnManageSubscription.visibility = if (subscribed) View.VISIBLE else View.GONE
+        val planPickerVisible = if (subscribed) View.GONE else View.VISIBLE
+        tvChoosePlan.visibility = planPickerVisible
+        rgSubscriptionPlan.visibility = planPickerVisible
         cardPdfProfile.visibility = if (subscribed) View.VISIBLE else View.GONE
 
         lifecycleScope.launch {
@@ -222,5 +238,48 @@ class SettingsActivity : BaseActivity() {
                 "?sku=$productId&package=$packageName"
         )
         startActivity(Intent(Intent.ACTION_VIEW, uri))
+    }
+
+    private fun bindSubscriptionPlans() {
+        val billing = subscriptionBilling ?: return
+        val plans = billing.getAvailablePlans()
+        val entries = listOf(
+            rbPlanMonthly to getString(R.string.subscription_base_plan_monthly),
+            rbPlanQuarterly to getString(R.string.subscription_base_plan_quarterly),
+            rbPlanYearly to getString(R.string.subscription_base_plan_yearly)
+        )
+        var firstVisibleId: Int? = null
+        for ((button, basePlanId) in entries) {
+            val plan = plans.firstOrNull { it.basePlanId.equals(basePlanId, ignoreCase = true) }
+            if (plan == null) {
+                button.visibility = View.GONE
+                continue
+            }
+            button.visibility = View.VISIBLE
+            button.text = getString(
+                R.string.subscription_plan_price_format,
+                plan.label,
+                plan.priceText
+            )
+            button.tag = plan.basePlanId
+            if (firstVisibleId == null) {
+                firstVisibleId = button.id
+            }
+        }
+        if (rgSubscriptionPlan.checkedRadioButtonId == View.NO_ID ||
+            findViewById<RadioButton>(rgSubscriptionPlan.checkedRadioButtonId)?.visibility != View.VISIBLE
+        ) {
+            firstVisibleId?.let { rgSubscriptionPlan.check(it) }
+        }
+        val anyVisible = entries.any { (btn, _) -> btn.visibility == View.VISIBLE }
+        val showPicker = anyVisible && !SubscriptionManager.isSubscribed(this)
+        tvChoosePlan.visibility = if (showPicker) View.VISIBLE else View.GONE
+        rgSubscriptionPlan.visibility = if (showPicker) View.VISIBLE else View.GONE
+    }
+
+    private fun selectedBasePlanId(): String? {
+        val checkedId = rgSubscriptionPlan.checkedRadioButtonId
+        if (checkedId == View.NO_ID) return null
+        return findViewById<RadioButton>(checkedId)?.tag as? String
     }
 }
