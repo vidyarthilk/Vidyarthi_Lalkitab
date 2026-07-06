@@ -43,8 +43,8 @@ android {
         applicationId = "com.vidyarthi.lalkitab"
         minSdk = 23
         targetSdk = 35
-        versionCode = 29
-        versionName = "5.4.1"
+        versionCode = 30
+        versionName = "5.4.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // Keep Hindi resources in release AAB (shrinkResources strips runtime-only locales otherwise).
         resourceConfigurations += listOf("en", "hi")
