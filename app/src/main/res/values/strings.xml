@@ -287,6 +287,11 @@
     <string name="chart_chandra_short">Moon chart</string>
     <string name="lagna_format">Lagna: %1$s %2$s°</string>
     <string name="graha_line_format">%1$s : %2$s %3$s° (House %4$d)\n</string>
+    <string name="graha_table_title">Graha · Rashi · Degree</string>
+    <string name="graha_table_col_graha">Graha</string>
+    <string name="graha_table_col_rashi">Rashi</string>
+    <string name="graha_table_col_degree">Degree</string>
+    <string name="graha_table_lagna">Lagna</string>
 
     <string name="varshfal_janma_title">Birth chart varshfal</string>
     <string name="varshfal_chandra_title">Moon chart varshfal</string>

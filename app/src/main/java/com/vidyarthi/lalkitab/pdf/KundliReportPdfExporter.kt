@@ -8,11 +8,13 @@ import android.graphics.pdf.PdfDocument
 import androidx.core.content.ContextCompat
 import com.vidyarthi.lalkitab.R
 import com.vidyarthi.lalkitab.data.GrahaPosition
+import com.vidyarthi.lalkitab.data.KundliChart
 import com.vidyarthi.lalkitab.data.KundliData
 import com.vidyarthi.lalkitab.data.LalKitabDashaSegment
 import com.vidyarthi.lalkitab.subscription.SubscriberProfileManager
 import com.vidyarthi.lalkitab.subscription.SubscriptionManager
 import com.vidyarthi.lalkitab.ui.kundli.BudhSvabhavFormat
+import com.vidyarthi.lalkitab.ui.kundli.GrahaRashiTableHelper
 import com.vidyarthi.lalkitab.ui.kundli.KundliChartView
 import com.vidyarthi.lalkitab.utils.BirthPlanetsHelper
 import com.vidyarthi.lalkitab.utils.DhokaNaGrahHelper
@@ -36,6 +38,8 @@ import kotlinx.coroutines.withContext
 object KundliReportPdfExporter {
 
     private data class PreparedCharts(
+        val janmaChart: KundliChart,
+        val chandraChart: KundliChart,
         val janma: Bitmap,
         val chandra: Bitmap,
         val janmaVarshfal: Bitmap,
@@ -84,14 +88,16 @@ object KundliReportPdfExporter {
                 doc, pages, context, k,
                 context.getString(R.string.pdf_page_janma_chart),
                 charts.janma,
-                KundliEngine.calculate(k).grahas,
+                charts.janmaChart.grahas,
+                tableChart = charts.janmaChart,
                 subscribed, profile, footer, logo
             )
             addChartPage(
                 doc, pages, context, k,
                 context.getString(R.string.pdf_page_chandra_chart),
                 charts.chandra,
-                KundliEngine.calculateChandraKundli(k).grahas,
+                charts.chandraChart.grahas,
+                tableChart = null,
                 subscribed, profile, footer, logo
             )
             addVarshfalPage(
@@ -127,6 +133,8 @@ object KundliReportPdfExporter {
             val fullW = chartWidthPx()
             val halfW = (PdfReportDrawer.contentWidth() / 2f).toInt().coerceAtLeast(200)
             PreparedCharts(
+                janmaChart = janmaChart,
+                chandraChart = chandraChart,
                 janma = KundliChartBitmap.render(
                     ctx, janmaChart.grahas, janmaChart.lagnaHouse, fullW
                 ),
@@ -326,12 +334,17 @@ object KundliReportPdfExporter {
         pageTitle: String,
         bitmap: Bitmap,
         grahas: List<GrahaPosition>,
+        tableChart: KundliChart?,
         subscribed: Boolean,
         profile: SubscriberProfileManager.Profile?,
         footer: String,
         logo: Bitmap?
     ) {
         val budh = BudhSvabhavFormat.line(ctx, grahas)
+        val tableRows = tableChart?.let { GrahaRashiTableHelper.rows(ctx, it) }
+        val tableH = if (tableRows != null) 36f + tableRows.size * 16f + 18f else 0f
+        val noteCardH = 36f
+        val gap = 12f
 
         val page = pages.newPage()
         val c = page.canvas
@@ -339,14 +352,21 @@ object KundliReportPdfExporter {
         y = PdfReportDrawer.drawSectionHeader(c, pageTitle, y)
 
         val maxW = PdfReportDrawer.contentWidth()
-        val scale = maxW / bitmap.width.toFloat()
-        val imgH = bitmap.height * scale
+        var imgH = bitmap.height * (maxW / bitmap.width.toFloat())
+        val maxChartBottom = PdfReportDrawer.contentBottom() - tableH - noteCardH - gap - 16f
+        if (y + imgH > maxChartBottom && maxChartBottom > y + 120f) {
+            imgH = maxChartBottom - y
+        }
         val dest = RectF(PdfReportDrawer.MARGIN, y, PdfReportDrawer.MARGIN + maxW, y + imgH)
         PdfReportDrawer.drawChartFrame(c, dest)
         c.drawBitmap(bitmap, null, dest, null)
-        y = dest.bottom + 16f
+        y = dest.bottom + gap
 
-        val noteCardH = 36f
+        if (tableRows != null) {
+            y = PdfReportDrawer.drawGrahaRashiTable(c, ctx, tableRows, y)
+            y += 8f
+        }
+
         PdfReportDrawer.drawCard(c, y, noteCardH, strokeGold = false)
         PdfReportDrawer.drawWrapped(
             c, budh.toString(), PdfReportDrawer.MARGIN + 12f, y + 14f,

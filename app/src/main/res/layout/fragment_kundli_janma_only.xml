@@ -25,6 +25,41 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Vidyarthi.KundliChartCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/cream_elevated"
+            app:contentPadding="0dp"
+            app:strokeColor="@color/golden"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/cream_white"
+                    android:paddingHorizontal="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/graha_table_title"
+                    android:textColor="@color/deep_maroon"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/grahaRashiTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
             style="@style/Widget.Vidyarthi.BudhSvabhavCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

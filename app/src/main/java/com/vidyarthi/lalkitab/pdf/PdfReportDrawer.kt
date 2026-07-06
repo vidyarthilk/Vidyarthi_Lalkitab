@@ -1,9 +1,12 @@
 package com.vidyarthi.lalkitab.pdf
 
+import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.Typeface
+import com.vidyarthi.lalkitab.R
+import com.vidyarthi.lalkitab.ui.kundli.GrahaRashiTableHelper
 
 /** Premium Lal Kitab PDF styling (maroon / gold / cream). */
 internal object PdfReportDrawer {
@@ -186,6 +189,34 @@ internal object PdfReportDrawer {
         drawRoundRect(c, outer, 8f, colorWhite, colorGold, 1.8f)
         val inner = RectF(outer.left + 3f, outer.top + 3f, outer.right - 3f, outer.bottom - 3f)
         drawRoundRect(c, inner, 6f, colorCreamCard, colorMaroon, 0.6f)
+    }
+
+    fun drawGrahaRashiTable(
+        c: Canvas,
+        ctx: Context,
+        rows: List<GrahaRashiTableHelper.Row>,
+        y: Float
+    ): Float {
+        val x = MARGIN
+        val totalW = contentWidth()
+        val colW = listOf(totalW * 0.36f, totalW * 0.36f, totalW * 0.28f)
+        var cy = drawSubheading(c, ctx.getString(R.string.graha_table_title), x + 4f, y + 4f, bodyPaint())
+        cy = drawTableHeader(
+            c,
+            listOf(
+                ctx.getString(R.string.graha_table_col_graha),
+                ctx.getString(R.string.graha_table_col_rashi),
+                ctx.getString(R.string.graha_table_col_degree)
+            ),
+            x, cy + 8f, colW
+        )
+        val rowPaint = smallPaint()
+        var alt = false
+        for (row in rows) {
+            cy = drawTableRow(c, listOf(row.graha, row.rashi, row.degree), x, cy, colW, rowPaint, alt)
+            alt = !alt
+        }
+        return cy + 4f
     }
 
     fun drawTableHeader(c: Canvas, columns: List<String>, x: Float, y: Float, colWidths: List<Float>): Float {

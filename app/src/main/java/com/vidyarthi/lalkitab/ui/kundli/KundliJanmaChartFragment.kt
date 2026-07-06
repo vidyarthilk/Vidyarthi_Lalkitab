@@ -18,12 +18,14 @@ class KundliJanmaChartFragment : Fragment(R.layout.fragment_kundli_janma_only) {
     private val sharedVM: SharedKundliViewModel by activityViewModels()
 
     private var janmaChartView: KundliChartView? = null
+    private var grahaRashiTable: android.widget.LinearLayout? = null
     private var tvBudhJanma: TextView? = null
     private var lastKundliHash: Int? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         janmaChartView = view.findViewById(R.id.janmaChartView)
+        grahaRashiTable = view.findViewById(R.id.grahaRashiTable)
         tvBudhJanma = view.findViewById(R.id.tvBudhSvabhavJanma)
         observeKundli()
     }
@@ -41,6 +43,7 @@ class KundliJanmaChartFragment : Fragment(R.layout.fragment_kundli_janma_only) {
                         val janma = KundliEngine.calculate(k)
                         janmaChartView?.setChartData(janma.grahas, janma.lagnaHouse)
                         janmaChartView?.invalidate()
+                        grahaRashiTable?.let { GrahaRashiTableHelper.bind(it, ctx, janma) }
                         tvBudhJanma?.text = BudhSvabhavFormat.line(ctx, janma)
                     } catch (e: Exception) {
                         Toast.makeText(
@@ -56,6 +59,7 @@ class KundliJanmaChartFragment : Fragment(R.layout.fragment_kundli_janma_only) {
 
     override fun onDestroyView() {
         janmaChartView = null
+        grahaRashiTable = null
         tvBudhJanma = null
         super.onDestroyView()
     }

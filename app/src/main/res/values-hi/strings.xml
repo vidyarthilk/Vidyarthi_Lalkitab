@@ -282,6 +282,11 @@
     <string name="chart_chandra_short">चंद्र कुंडली</string>
     <string name="lagna_format">लग्न: %1$s %2$s°</string>
     <string name="graha_line_format">%1$s : %2$s %3$s° (भाव %4$d)\n</string>
+    <string name="graha_table_title">ग्रह · राशि · अंश</string>
+    <string name="graha_table_col_graha">ग्रह</string>
+    <string name="graha_table_col_rashi">राशि</string>
+    <string name="graha_table_col_degree">अंश</string>
+    <string name="graha_table_lagna">लग्न</string>
 
     <string name="varshfal_janma_title">जन्म कुंडली वर्षफल</string>
     <string name="varshfal_chandra_title">चंद्र कुंडली वर्षफल</string>
