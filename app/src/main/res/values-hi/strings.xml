@@ -372,6 +372,13 @@
     <string name="pdf_samay_graha">समय ग्रह: %1$s</string>
     <string name="pdf_mahadasha_line">महादशा: %1$s · वर्ष %2$d–%3$d · %4$s से %5$s</string>
     <string name="pdf_antar_line">अंतर्दशा %1$s (%2$s में) · %3$s – %4$s%5$s</string>
+    <string name="pdf_section_day">दिन व समय</string>
+    <string name="pdf_section_lunar">तिथि व नक्षत्र</string>
+    <string name="pdf_section_graha">जन्मदिन व समय ग्रह</string>
+    <string name="pdf_col_antar">अंतर्दशा</string>
+    <string name="pdf_col_maha">महादशा</string>
+    <string name="pdf_col_from">से</string>
+    <string name="pdf_col_to">तक</string>
     <string name="pdf_profile_empty_hint">Settings → PDF letterhead में नाम, फोन और पता जोड़ें</string>
     <string name="settings_pdf_profile">PDF लेटरहेड (Premium)</string>
     <string name="settings_pdf_profile_hint">सब्सक्रिप्शन पर हर PDF पृष्ठ पर दिखेगा।</string>

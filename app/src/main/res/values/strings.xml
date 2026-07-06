@@ -383,6 +383,13 @@
     <string name="pdf_samay_graha">Samay graha: %1$s</string>
     <string name="pdf_mahadasha_line">Mahadasha: %1$s · Years %2$d–%3$d · %4$s to %5$s</string>
     <string name="pdf_antar_line">Antardasha %1$s (in %2$s) · %3$s – %4$s%5$s</string>
+    <string name="pdf_section_day">Day &amp; timings</string>
+    <string name="pdf_section_lunar">Tithi &amp; nakshatra</string>
+    <string name="pdf_section_graha">Birth day &amp; time graha</string>
+    <string name="pdf_col_antar">Antardasha</string>
+    <string name="pdf_col_maha">Mahadasha</string>
+    <string name="pdf_col_from">From</string>
+    <string name="pdf_col_to">To</string>
     <string name="pdf_profile_empty_hint">Add your name, phone and address in Settings → PDF letterhead</string>
     <string name="settings_pdf_profile">PDF letterhead (Premium)</string>
     <string name="settings_pdf_profile_hint">Shown on every PDF page when you are subscribed.</string>

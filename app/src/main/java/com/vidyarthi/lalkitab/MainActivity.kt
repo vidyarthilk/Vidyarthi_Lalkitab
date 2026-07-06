@@ -26,9 +26,7 @@ import com.vidyarthi.lalkitab.update.PlayStoreUpdateHelper
 import com.vidyarthi.lalkitab.pdf.KundliReportPdfExporter
 import com.vidyarthi.lalkitab.pdf.PdfShareHelper
 import com.vidyarthi.lalkitab.utils.KundliHolder
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import android.widget.Toast
 import com.vidyarthi.lalkitab.utils.SwissEphManager
 import com.google.android.material.appbar.MaterialToolbar
@@ -231,16 +229,14 @@ class MainActivity : BaseActivity(), MainKundliNavigator {
         val k = sharedVM.kundliData.value ?: return
         Toast.makeText(this, R.string.pdf_generating, Toast.LENGTH_SHORT).show()
         lifecycleScope.launch {
-            val file = withContext(Dispatchers.IO) {
-                runCatching {
-                    KundliReportPdfExporter.export(
-                        this@MainActivity,
-                        k,
-                        KundliHolder.sessionCity,
-                        KundliHolder.sessionGender
-                    )
-                }.getOrNull()
-            }
+            val file = runCatching {
+                KundliReportPdfExporter.export(
+                    this@MainActivity,
+                    k,
+                    KundliHolder.sessionCity,
+                    KundliHolder.sessionGender
+                )
+            }.getOrNull()
             if (file == null) {
                 Toast.makeText(this@MainActivity, R.string.pdf_export_failed, Toast.LENGTH_LONG).show()
             } else {
